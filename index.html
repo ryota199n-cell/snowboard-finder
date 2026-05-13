@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🏂 BOARD FINDER — あなたの最強スノーボードを探せ！</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --yellow:#FFE500;--coral:#FF4757;--blue:#00D2FF;--mint:#00F5A0;
+  --purple:#B24BF3;--navy:#0D1B2A;--offwhite:#FFFEF0;--gray:#F0F0F0;--ink:#1A1A2E;
+  --bd:3px solid var(--ink);--sh:5px 5px 0 var(--ink);--shl:8px 8px 0 var(--ink);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--offwhite);color:var(--ink);min-height:100vh;overflow-x:hidden}
+
+/* HERO */
+.hero{position:relative;padding:52px 24px 52px;overflow:hidden;border-bottom:var(–bd);background:var(–navy)}
+.hero::before{content:’’;position:absolute;inset:0;background-image:repeating-linear-gradient(-45deg,transparent,transparent 20px,rgba(255,229,0,.04) 20px,rgba(255,229,0,.04) 40px)}
+.hero-inner{position:relative;z-index:1;max-width:820px;margin:0 auto;text-align:center}
+.hero-chip{display:inline-block;background:var(–yellow);color:var(–ink);font-weight:900;font-size:12px;
+letter-spacing:.15em;text-transform:uppercase;padding:6px 20px;border-radius:100px;
+border:var(–bd);box-shadow:var(–sh);margin-bottom:20px;animation:popIn .5s cubic-bezier(.34,1.56,.64,1) both}
+h1.htl{font-family:‘Russo One’,sans-serif;font-size:clamp(44px,10vw,98px);color:#fff;line-height:.92;
+text-transform:uppercase;animation:popIn .5s .1s cubic-bezier(.34,1.56,.64,1) both}
+h1.htl em{font-style:normal;color:var(–yellow);display:block}
+.hero-sub{color:rgba(255,255,255,.62);font-size:15px;font-weight:600;margin-top:16px;line-height:1.65;
+animation:popIn .5s .2s cubic-bezier(.34,1.56,.64,1) both}
+.hero-brands{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:20px;
+animation:popIn .5s .3s cubic-bezier(.34,1.56,.64,1) both}
+.btag-h{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.8);
+font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 11px;border-radius:6px}
+.btag-h.jp{background:rgba(255,229,0,.15);border-color:rgba(255,229,0,.4);color:var(–yellow)}
+.sf{position:absolute;font-size:20px;animation:sfall linear infinite;opacity:.33;pointer-events:none}
+@keyframes sfall{from{transform:translateY(-40px) rotate(0)}to{transform:translateY(110vh) rotate(360deg)}}
+
+/* WRAP */
+.wrap{max-width:860px;margin:0 auto;padding:40px 20px 100px}
+
+/* STEP CARDS */
+.step-card{background:#fff;border:var(–bd);border-radius:20px;box-shadow:var(–shl);
+padding:30px 26px;margin-bottom:18px;overflow:hidden;position:relative}
+.step-card::before{content:’’;position:absolute;top:0;left:0;right:0;height:6px}
+.s1::before{background:var(–coral)}.s2::before{background:var(–blue)}
+.s3::before{background:var(–mint)}.s4::before{background:var(–purple)}
+.slbl{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:900;
+letter-spacing:.2em;text-transform:uppercase;color:rgba(0,0,0,.38);margin-bottom:10px}
+.snum{width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;
+font-size:12px;font-weight:900;color:#fff;background:var(–ink)}
+.step-card h2{font-family:‘Russo One’,sans-serif;font-size:clamp(19px,3.5vw,27px);line-height:1.1;margin-bottom:20px}
+
+/* INPUTS */
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:500px){.frow{grid-template-columns:1fr}}
+.fld{display:flex;flex-direction:column;gap:7px}
+.fld label{font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:rgba(0,0,0,.48)}
+.fld input,.fld select{font-family:‘Nunito’,sans-serif;font-size:19px;font-weight:800;
+background:var(–offwhite);border:var(–bd);border-radius:12px;padding:12px 15px;
+color:var(–ink);outline:none;-webkit-appearance:none;width:100%;transition:box-shadow .15s,border-color .15s}
+.fld input:focus,.fld select:focus{box-shadow:4px 4px 0 var(–blue);border-color:var(–blue)}
+.fld select option{font-size:16px}
+
+/* PILLS */
+.pgrid{display:flex;flex-wrap:wrap;gap:10px}
+.pbtn{font-family:‘Nunito’,sans-serif;font-size:14px;font-weight:800;
+background:var(–offwhite);border:var(–bd);border-radius:100px;
+padding:10px 20px;cursor:pointer;transition:all .15s cubic-bezier(.34,1.56,.64,1);
+display:flex;flex-direction:column;align-items:center;gap:2px;user-select:none;white-space:nowrap}
+.pbtn:hover{transform:translateY(-3px);box-shadow:4px 4px 0 var(–ink)}
+.pbtn.sel{background:var(–yellow);box-shadow:var(–sh);transform:translateY(-2px)}
+.pbtn.lv-sel{background:var(–coral);color:#fff;box-shadow:var(–sh);transform:translateY(-2px)}
+.psub{font-size:10px;font-weight:700;opacity:.6}
+
+/* FLEX SLIDER */
+.fxbig{text-align:center;margin-bottom:12px;font-family:‘Russo One’,sans-serif;font-size:60px;line-height:1}
+.fxbig span{color:var(–coral)}
+input[type=range]{-webkit-appearance:none;width:100%;height:14px;background:var(–offwhite);
+border:var(–bd);border-radius:100px;outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:32px;height:32px;
+background:var(–yellow);border:var(–bd);border-radius:50%;box-shadow:var(–sh);cursor:pointer;transition:transform .15s}
+input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.2)}
+.fxmarks{display:flex;justify-content:space-between;font-size:10px;font-weight:900;opacity:.38;margin-top:5px;padding:0 4px}
+.fxdesc{font-size:13px;font-weight:700;color:rgba(0,0,0,.48);margin-top:10px;text-align:center}
+
+/* CTA */
+.cta-sec{text-align:center;padding:4px 0}
+.cta-btn{font-family:‘Russo One’,sans-serif;font-size:22px;letter-spacing:.05em;
+background:var(–coral);color:#fff;border:var(–bd);border-radius:100px;
+padding:20px 60px;cursor:pointer;box-shadow:var(–shl);
+transition:all .15s cubic-bezier(.34,1.56,.64,1);position:relative;overflow:hidden}
+.cta-btn::after{content:’’;position:absolute;inset:0;
+background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.28) 50%,transparent 70%);
+transform:translateX(-100%);transition:transform .45s}
+.cta-btn:hover::after{transform:translateX(100%)}
+.cta-btn:hover:not(:disabled){transform:translateY(-4px) scale(1.02);box-shadow:10px 10px 0 var(–ink)}
+.cta-btn:active:not(:disabled){transform:none;box-shadow:var(–sh)}
+.cta-btn:disabled{opacity:.4;cursor:not-allowed}
+.nmsg{font-size:13px;font-weight:700;color:var(–coral);margin-top:12px}
+
+/* LOADING */
+.ldwrap{text-align:center;padding:60px 20px;animation:fadeIn .4s ease}
+.ldspin{font-size:64px;display:inline-block;animation:spin 1s linear infinite;margin-bottom:16px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ldttl{font-family:‘Russo One’,sans-serif;font-size:22px}
+.ldsub{font-size:14px;font-weight:600;color:rgba(0,0,0,.42);margin-top:8px}
+
+/* RESULTS */
+#results-section{animation:fadeIn .5s ease}
+.reshd{text-align:center;margin-bottom:32px}
+.reshd h2{font-family:‘Russo One’,sans-serif;font-size:clamp(30px,6vw,48px);text-transform:uppercase;line-height:1}
+.reshd h2 em{font-style:normal;color:var(–coral)}
+.reshd p{font-size:14px;font-weight:600;color:rgba(0,0,0,.48);margin-top:8px}
+.board-cards{display:flex;flex-direction:column;gap:24px}
+
+/* ══════════════════════════════════════════
+BOARD CARD — 板画像をヘッダー右端に配置
+══════════════════════════════════════════ */
+.bcard{background:#fff;border:var(–bd);border-radius:20px;box-shadow:var(–shl);
+overflow:hidden;animation:popIn .5s cubic-bezier(.34,1.56,.64,1) both}
+.bcard:nth-child(2){animation-delay:.1s}.bcard:nth-child(3){animation-delay:.2s}
+
+/* ヘッダー：rank + info + score + 板画像 */
+.bcard-head{
+padding:18px 20px 18px 20px;
+display:flex;
+align-items:stretch;   /* 子要素を同じ高さに揃える */
+gap:13px;
+border-bottom:var(–bd);
+min-height:140px;
+}
+.bcard-rank{
+width:48px;height:48px;min-width:48px;border-radius:13px;border:var(–bd);
+font-family:‘Russo One’,sans-serif;font-size:24px;
+display:flex;align-items:center;justify-content:center;
+background:var(–yellow);flex-shrink:0;align-self:flex-start;
+}
+.bcard.rank2 .bcard-rank{background:#e0e0e0}
+.bcard.rank3 .bcard-rank{background:#ffd6a0}
+
+.bcard-info{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:flex-start}
+.bcard-badges{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:7px}
+.bdg{display:inline-block;font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;
+padding:3px 9px;border-radius:100px;border:2px solid var(–ink)}
+.bdg-best{background:var(–coral);color:#fff}
+.bdg-jp{background:var(–yellow);color:var(–ink)}
+.bdg-rak{background:#bf0000;color:#fff}
+.bdg-new{background:var(–mint);color:var(–ink)}
+.bc-brand{font-size:11px;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:rgba(0,0,0,.38);margin-bottom:2px}
+.bc-name{font-family:‘Russo One’,sans-serif;font-size:clamp(18px,3vw,25px);line-height:1.1;color:var(–ink);margin-bottom:4px}
+.bc-score-row{display:flex;align-items:center;gap:8px;margin-top:auto}
+.score-ring{width:50px;height:50px;border-radius:50%;border:var(–bd);flex-shrink:0;
+display:flex;align-items:center;justify-content:center;flex-direction:column;
+background:var(–offwhite);box-shadow:3px 3px 0 var(–ink)}
+.sc-n{font-family:‘Russo One’,sans-serif;font-size:18px;line-height:1}
+.sc-l{font-size:8px;font-weight:900;opacity:.45;letter-spacing:.1em}
+
+/* ★ 板画像 — 縦長長方形・右端配置 */
+.board-graphic{
+flex-shrink:0;
+width:62px;          /* 板の幅 */
+align-self:stretch;  /* ヘッダーと同じ高さに */
+display:flex;
+align-items:center;
+justify-content:center;
+padding:4px 0;
+}
+.board-graphic img{
+width:56px;
+height:auto;
+max-height:190px;
+border-radius:30px;  /* 板のノーズ・テールのカーブ感 */
+border:2px solid rgba(0,0,0,.12);
+box-shadow:3px 3px 0 rgba(0,0,0,.15);
+display:block;
+}
+
+/* Other card sections */
+.bc-tags{display:flex;flex-wrap:wrap;gap:6px;padding:11px 20px;border-bottom:var(–bd)}
+.btag-c{font-size:11px;font-weight:800;background:var(–navy);color:var(–yellow);
+padding:4px 11px;border-radius:100px;letter-spacing:.04em}
+.btag-c.jp{background:var(–purple);color:#fff}
+
+.bc-reason{padding:14px 20px;font-size:14px;font-weight:600;line-height:1.75;
+border-bottom:var(–bd);background:var(–offwhite)}
+
+.bc-specs{display:grid;grid-template-columns:repeat(auto-fit,minmax(85px,1fr));border-bottom:var(–bd)}
+.sp{padding:11px 12px;border-right:var(–bd);text-align:center}
+.sp:last-child{border-right:none}
+.sp-l{font-size:9px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:rgba(0,0,0,.38);margin-bottom:3px}
+.sp-v{font-family:‘Russo One’,sans-serif;font-size:16px;color:var(–ink);line-height:1.1}
+.sp-v.sm{font-size:12px;font-family:‘Nunito’,sans-serif;font-weight:800}
+
+.season-row{display:flex;gap:6px;padding:9px 20px;border-bottom:var(–bd);flex-wrap:wrap}
+.stag{font-size:11px;font-weight:800;padding:3px 11px;border-radius:100px;
+border:2px solid var(–ink);background:var(–offwhite);color:var(–ink)}
+.stag.cur{background:var(–navy);color:var(–yellow)}
+.stag.nxt{background:var(–mint);color:var(–ink)}
+
+.bc-foot{padding:13px 20px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.hls{display:flex;flex-wrap:wrap;gap:5px}
+.hl{font-size:11px;font-weight:700;background:var(–gray);border:2px solid rgba(0,0,0,.1);
+border-radius:8px;padding:3px 8px;color:rgba(0,0,0,.58)}
+.off-link{display:inline-flex;align-items:center;gap:5px;font-family:‘Russo One’,sans-serif;font-size:12px;
+background:var(–navy);color:var(–yellow);padding:9px 16px;border-radius:100px;
+border:var(–bd);box-shadow:var(–sh);text-decoration:none;
+transition:all .15s cubic-bezier(.34,1.56,.64,1);white-space:nowrap}
+.off-link:hover{transform:translateY(-2px);box-shadow:var(–shl)}
+
+/* RETRY */
+.retry-wrap{text-align:center;margin-top:34px}
+.retry-btn{font-family:‘Russo One’,sans-serif;font-size:16px;background:var(–navy);color:var(–yellow);
+border:var(–bd);border-radius:100px;padding:14px 36px;cursor:pointer;box-shadow:var(–sh);
+transition:all .15s cubic-bezier(.34,1.56,.64,1)}
+.retry-btn:hover{transform:translateY(-3px);box-shadow:var(–shl)}
+
+/* NO MATCH */
+.nomatch{text-align:center;padding:48px 24px;background:#fff;border:var(–bd);border-radius:20px;box-shadow:var(–shl)}
+.nomatch .nmi{font-size:64px;margin-bottom:14px}
+.nomatch h3{font-family:‘Russo One’,sans-serif;font-size:22px;margin-bottom:10px}
+.nomatch p{font-size:14px;font-weight:600;color:rgba(0,0,0,.48);line-height:1.7}
+
+/* CONFETTI */
+.cf{position:fixed;animation:cff 3s ease-in forwards;pointer-events:none;z-index:9999;border-radius:2px}
+@keyframes cff{0%{transform:translateY(-20px) rotate(0);opacity:1}100%{transform:translateY(100vh) rotate(720deg);opacity:0}}
+
+/* FOOTER */
+.footer{text-align:center;padding:26px 20px;background:var(–navy);
+color:rgba(255,255,255,.38);font-size:12px;font-weight:600;border-top:var(–bd)}
+
+/* ANIMATIONS */
+@keyframes popIn{from{opacity:0;transform:scale(.8) translateY(10px)}to{opacity:1;transform:scale(1) translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+</style>
+
+</head>
+<body>
+
+<section class="hero">
+  <div class="sf" style="left:5%;animation-duration:6s">❄️</div>
+  <div class="sf" style="left:18%;animation-duration:8s;animation-delay:1s;font-size:14px">❄</div>
+  <div class="sf" style="left:40%;animation-duration:7s;animation-delay:2.5s">🌨</div>
+  <div class="sf" style="left:63%;animation-duration:9s;animation-delay:.8s;font-size:14px">❄</div>
+  <div class="sf" style="left:82%;animation-duration:6.5s;animation-delay:3.5s">❄️</div>
+  <div class="hero-inner">
+    <div class="hero-chip">🏂 2025-26 / 26-27 対応 — 国産ブランド完全網羅</div>
+    <h1 class="htl">BOARD<em>FINDER</em></h1>
+    <p class="hero-sub">体格・レベル・スタイルを入力するだけで最適な板をAIが即提案！<br>国産から海外有名ブランドまで40モデル以上を網羅</p>
+    <div class="hero-brands">
+      <span class="btag-h jp">🇯🇵 OGASAKA</span><span class="btag-h jp">🇯🇵 FNTC</span>
+      <span class="btag-h jp">🇯🇵 YONEX</span><span class="btag-h jp">🇯🇵 NOVEMBER</span>
+      <span class="btag-h jp">🇯🇵 SCOOTER</span><span class="btag-h jp">🇯🇵 011artistic</span>
+      <span class="btag-h jp">🇯🇵 RICE28</span><span class="btag-h jp">🇯🇵 GENTEMSTICK</span>
+      <span class="btag-h">Burton</span><span class="btag-h">Lib Tech</span>
+      <span class="btag-h">Capita</span><span class="btag-h">Salomon</span>
+      <span class="btag-h">Jones</span><span class="btag-h">GNU</span>
+    </div>
+  </div>
+</section>
+
+<main class="wrap" id="main-form">
+  <div class="step-card s1">
+    <div class="slbl"><span class="snum">1</span> あなたのカラダ</div>
+    <h2>身長・体重・性別を入力しよう 💪</h2>
+    <div class="frow">
+      <div class="fld"><label>身長 (cm)</label>
+        <input type="number" id="height" placeholder="170" min="130" max="220"></div>
+      <div class="fld"><label>体重 (kg)</label>
+        <input type="number" id="weight" placeholder="65" min="30" max="160"></div>
+      <div class="fld"><label>性別</label>
+        <select id="gender">
+          <option value="male">男性</option>
+          <option value="female">女性</option>
+          <option value="unisex">指定なし</option>
+        </select></div>
+      <div class="fld"><label>希望の板の長さ (cm) — 省略OK</label>
+        <input type="number" id="length" placeholder="未定なら空欄" min="130" max="180"></div>
+    </div>
+  </div>
+
+  <div class="step-card s2">
+    <div class="slbl"><span class="snum">2</span> あなたのレベル</div>
+    <h2>どのくらい滑れる？ 🎿</h2>
+    <div class="pgrid" id="level-pills">
+      <button class="pbtn" data-lv="beginner" onclick="setLevel(this)">初心者<span class="psub">ターンを練習中</span></button>
+      <button class="pbtn" data-lv="intermediate" onclick="setLevel(this)">中級者<span class="psub">ほぼ全斜面OK</span></button>
+      <button class="pbtn" data-lv="advanced" onclick="setLevel(this)">上級者<span class="psub">急斜面・コブ得意</span></button>
+      <button class="pbtn" data-lv="expert" onclick="setLevel(this)">エキスパート<span class="psub">競技・バックカントリー</span></button>
+    </div>
+  </div>
+
+  <div class="step-card s3">
+    <div class="slbl"><span class="snum">3</span> ライドスタイル</div>
+    <h2>どんな滑りが好き？（複数OK）🌊</h2>
+    <div class="pgrid" id="style-pills">
+      <button class="pbtn" data-st="all-mountain" onclick="toggleStyle(this)">🏔 オールマウンテン</button>
+      <button class="pbtn" data-st="freestyle" onclick="toggleStyle(this)">🤸 フリースタイル</button>
+      <button class="pbtn" data-st="powder" onclick="toggleStyle(this)">💨 パウダー</button>
+      <button class="pbtn" data-st="carving" onclick="toggleStyle(this)">⚡ カービング</button>
+      <button class="pbtn" data-st="park" onclick="toggleStyle(this)">🎪 パーク・ジブ</button>
+      <button class="pbtn" data-st="gratri" onclick="toggleStyle(this)">💃 グラトリ<span class="psub">日本で大人気 🇯🇵</span></button>
+    </div>
+  </div>
+
+  <div class="step-card s4">
+    <div class="slbl"><span class="snum">4</span> フレックス（板の硬さ）</div>
+    <h2>好みの硬さは？ 🎯</h2>
+    <div class="fxbig"><span id="flex-num">5</span><small style="font-size:26px;opacity:.32">/10</small></div>
+    <input type="range" id="flex-slider" min="1" max="10" value="5" oninput="updateFlex(this.value)">
+    <div class="fxmarks"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div>
+    <div class="fxdesc" id="fxdesc">ミディアム — オールラウンド・バランス型</div>
+  </div>
+
+  <div class="cta-sec">
+    <button class="cta-btn" onclick="findBoards()">🏂 最適なボードを探す！</button>
+    <div class="nmsg" id="nmsg"></div>
+  </div>
+</main>
+
+<div id="loading-section" class="wrap" style="display:none">
+  <div class="ldwrap">
+    <div class="ldspin">🏂</div>
+    <div class="ldttl">最高の一枚を探してるよ！</div>
+    <div class="ldsub">国産・海外 40モデル以上のデータを分析中...⚡</div>
+  </div>
+</div>
+
+<div id="results-section" class="wrap" style="display:none">
+  <div class="reshd">
+    <h2>あなたへの<em>おすすめ</em> 🎯</h2>
+    <p id="res-sub"></p>
+  </div>
+  <div class="board-cards" id="board-cards"></div>
+  <div class="retry-wrap">
+    <button class="retry-btn" onclick="retrySearch()">🔄 もう一度探す</button>
+  </div>
+</div>
+
+<footer class="footer">🏂 BOARD FINDER 2025-26/26-27 — 国産ブランド対応</footer>
+
+<script>
+// ═══════════════════════════════════════════════════════
+//  SVG BOARD GENERATOR
+//  ブランドカラーと板の形状をSVGで生成 → 必ず表示される
+// ═══════════════════════════════════════════════════════
+const BRAND_COLORS = {
+  'OGASAKA':     { bg1:'#CC0000', bg2:'#880000', accent:'#FFFFFF', text:'#FFFFFF' },
+  'FNTC':        { bg1:'#111111', bg2:'#2a2a2a', accent:'#FFE500', text:'#FFE500' },
+  'YONEX':       { bg1:'#003087', bg2:'#001A55', accent:'#FFD700', text:'#FFD700' },
+  'NOVEMBER':    { bg1:'#E55A00', bg2:'#AA3A00', accent:'#FFFFFF', text:'#FFFFFF' },
+  'SCOOTER':     { bg1:'#005C2E', bg2:'#003A1C', accent:'#FFFFFF', text:'#FFFFFF' },
+  '011artistic': { bg1:'#1A1A1A', bg2:'#333333', accent:'#00D2FF', text:'#00D2FF' },
+  'RICE28':      { bg1:'#0055AA', bg2:'#003377', accent:'#FFFFFF', text:'#FFFFFF' },
+  'GENTEMSTICK': { bg1:'#007777', bg2:'#005555', accent:'#E8F8F5', text:'#E8F8F5' },
+  'WRX SB':      { bg1:'#1A1A1A', bg2:'#333',    accent:'#FF4757', text:'#FF4757' },
+  'Burton':      { bg1:'#E04E00', bg2:'#A33800', accent:'#FFE500', text:'#FFE500' },
+  'Lib Tech':    { bg1:'#4A8C00', bg2:'#2E5800', accent:'#FFE500', text:'#FFE500' },
+  'Capita':      { bg1:'#1A1A2E', bg2:'#0D1117', accent:'#FF4757', text:'#FFFFFF' },
+  'Salomon':     { bg1:'#1A1A2E', bg2:'#0D1117', accent:'#00BFFF', text:'#FFFFFF' },
+  'GNU':         { bg1:'#005C2E', bg2:'#003A1C', accent:'#FFE500', text:'#FFE500' },
+  'Jones':       { bg1:'#3A2818', bg2:'#241808', accent:'#C8A870', text:'#F5E6CC' },
+  'Never Summer':{ bg1:'#005580', bg2:'#003355', accent:'#00D2FF', text:'#FFFFFF' },
+  'Rossignol':   { bg1:'#CC0000', bg2:'#880000', accent:'#FFE500', text:'#FFE500' },
+  'K2':          { bg1:'#1A1A2E', bg2:'#0D1117', accent:'#FF6B00', text:'#FFFFFF' },
+};
+
+function makeBoardSVG(brand, model) {
+  const c = BRAND_COLORS[brand] || { bg1:'#1A1A2E', bg2:'#0D1117', accent:'#00E5FF', text:'#FFFFFF' };
+
+  // 板の形状 SVG パス (幅56px, 高さ188px)
+  // ノーズ(上)が丸く、テール(下)が少し角ばった典型的なツイン〜ディレクショナル形状
+  const boardPath = `
+    M28,4
+    C20,4 10,10 8,22
+    L5,75 C4,85 4,95 5,105
+    L8,158 C10,172 18,184 28,184
+    C38,184 46,172 48,158
+    L51,105 C52,95 52,85 51,75
+    L48,22 C46,10 36,4 28,4 Z
+  `;
+
+  // ウエスト部分の細い部分を示す装飾線
+  const waistLine = `
+    M8,94 C8,94 28,88 48,94
+    M8,98 C8,98 28,104 48,98
+  `;
+
+  // ブランド名を板の長さ方向に表示（縦書き）
+  const brandShort = brand.length > 10 ? brand.slice(0,10) : brand;
+  const modelShort = model.length > 12 ? model.slice(0,12) : model;
+
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="56" height="188" viewBox="0 0 56 188">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="${c.bg1}"/>
+      <stop offset="100%" stop-color="${c.bg2}"/>
+    </linearGradient>
+    <clipPath id="bc"><path d="${boardPath}"/></clipPath>
+  </defs>
+
+  <!-- 板の本体 -->
+  <path d="${boardPath}" fill="url(#g)"/>
+
+  <!-- 板内部の装飾（クリップ） -->
+  <g clip-path="url(#bc)">
+    <!-- 縦のセンター線 -->
+    <line x1="28" y1="0" x2="28" y2="188" stroke="${c.accent}" stroke-width="1" opacity="0.2"/>
+    <!-- 中央帯 -->
+    <rect x="0" y="72" width="56" height="44" fill="${c.accent}" opacity="0.1"/>
+    <!-- ノーズの装飾 -->
+    <ellipse cx="28" cy="22" rx="14" ry="8" fill="${c.accent}" opacity="0.15"/>
+    <!-- テールの装飾 -->
+    <ellipse cx="28" cy="166" rx="12" ry="6" fill="${c.accent}" opacity="0.15"/>
+  </g>
+
+  <!-- ウエストライン -->
+  <path d="${waistLine}" fill="none" stroke="${c.accent}" stroke-width="0.8" opacity="0.35"/>
+
+  <!-- 板のアウトライン -->
+  <path d="${boardPath}" fill="none" stroke="${c.accent}" stroke-width="1.8" opacity="0.7"/>
+
+  <!-- ブランド名（縦書き） -->
+  <text
+    x="28" y="80"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    fill="${c.text}"
+    font-family="'Russo One',Arial Black,sans-serif"
+    font-size="8"
+    font-weight="bold"
+    letter-spacing="1.5"
+    transform="rotate(-90,28,80)">${brandShort}</text>
+
+  <!-- モデル名（縦書き） -->
+  <text
+    x="28" y="108"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    fill="${c.text}"
+    font-family="Arial,sans-serif"
+    font-size="6.5"
+    opacity="0.85"
+    letter-spacing="0.8"
+    transform="rotate(-90,28,108)">${modelShort}</text>
+</svg>`;
+
+  return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+}
+
+// ═══════════════════════════════════════════════════════
+//  BOARD DATABASE
+// ═══════════════════════════════════════════════════════
+const DB = [
+  { brand:"OGASAKA", model:"CT", isJP:true, isRak:true, isWomens:false,
+    seasons:["25-26","26-27"], levels:["intermediate","advanced","expert"],
+    styles:["all-mountain","carving","freestyle"], flex:6,
+    shape:"ディレクショナルツイン", profile:"ハイブリッドキャンバー",
+    lengths:[147,150,152,154,156,158,161], price:"¥86,000〜102,000",
+    highlights:["長野・小賀坂製 Made in Japan","SAJ技術選使用モデル","カービングとグラトリを両立"],
+    url:"https://www.ogasaka-snowboard.com" },
+
+  { brand:"OGASAKA", model:"FC", isJP:true, isRak:true, isWomens:false,
+    seasons:["25-26","26-27"], levels:["intermediate","advanced","expert"],
+    styles:["all-mountain","carving","freestyle","gratri"], flex:5,
+    shape:"セミハンマーシェイプ", profile:"ハイブリッドキャンバー",
+    lengths:[145,148,151,154], price:"¥98,000〜120,000",
+    highlights:["吉村美乃梨（SAJ技術選チャンプ）使用","グラトリ＋カービングの決定版","楽天ランキング常連"],
+    url:"https://www.ogasaka-snowboard.com" },
+
+  { brand:"FNTC", model:"TNT R", isJP:true, isRak:true, isWomens:false,
+    seasons:["25-26","26-27"], levels:["beginner","intermediate","advanced"],
+    styles:["gratri","freestyle","park"], flex:4,
+    shape:"ツイン", profile:"ダブルキャンバー",
+    lengths:[139,143,147,150,153,157], price:"¥55,000〜70,000",
+    highlights:["グラトリ界の伝説モデル","独自ダブルキャンバーの柔軟なしなり","楽天グラトリランキング常連"],
+    url:"https://www.fntc.jp" },
+
+  { brand:"FNTC", model:"TNT C", isJP:true, isRak:true, isWomens:false,
+    seasons:["25-26","26-27"], levels:["beginner","intermediate"],
+    styles:["gratri","freestyle","all-mountain"], flex:4,
+    shape:"ツイン", profile:"ポップキャンバー",
+    lengths:[139,143,147,150,153,157], price:"¥32,000〜46,000",
+    highlights:["グラトリ入門の決定版","コスパ最強クラス","楽天スノボ板ランキングNo.1常連"],
+    url:"https://www.fntc.jp" },
+
+  { brand:"FNTC", model:"CAT", isJP:true, isRak:true, isWomens:false,
+    seasons:["25-26","26-27"], levels:["intermediate","advanced"],
+    styles:["gratri","freestyle","park"], flex:3,
+    shape:"ツイン", profile:"ロッカー",
+    lengths:[144,147,150,153,156], price:"¥49,000〜62,000",
+    highlights:["超軽量ボディで空中操作が楽","プレス・ジブ特化","有名YouTuber使用で話題沸騰"],
+    url:"https://www.fntc.jp" },
+
+  { brand:"YONEX", model:"ACHSE", isJP:true, isRak:true, isWomens:false,
+    seasons:["25-26","26-27"], levels:["intermediate","advanced"],
+    styles:["gratri","freestyle","park","all-mountain"], flex:4,
+    shape:"ツイン", profile:"ハイブリッドキャンバー",
+    lengths:[144,147,150,153,156,159], price:"¥62,000〜78,000",
+    highlights:["ナノカーボン技術で超軽量","グラトリからパークまで対応","日本トップライダー愛用"],
+    url:"https://www.yonex.co.jp/snowboard" },
+
+  { brand:"YONEX", model:"NANOACE", isJP:true, isRak:false, isWomens:false,
+    seasons:["25-26","26-27"], levels:["advanced","expert"],
+    styles:["carving","all-mountain"], flex:8,
+    shape:"ディレクショナル", profile:"フルキャンバー",
+    lengths:[150,153,156,159,162], price:"¥89,000〜108,000",
+    highlights:["カーボン技術のカービング特化","高速安定性が圧倒的","競技・レーシング対応"],
+    url:"https://www.yonex.co.jp/snowboard" },
+
+  { brand:"NOVEMBER", model:"ARTISTE", isJP:true, isRak:true, isWomens:false,
+    seasons:["25-26","26-27"], levels:["beginner","intermediate","advanced"],
+    styles:["freestyle","gratri","park","all-mountain"], flex:4,
+    shape:"ツイン", profile:"ハイブリッドキャンバー",
+    lengths:[143,146,149,152,155,158], price:"¥78,000〜98,000",
+    highlights:["小賀坂工場 Made in Japan","フリースタイルの定番国産モデル","日本人体格に最適設計"],
+    url:"https://november-snowboard.com" },
+
+  { brand:"NOVEMBER", model:"ICECAT", isJP:true, isRak:true, isWomens:false,
+    seasons:["25-26","26-27"], levels:["intermediate","advanced"],
+    styles:["all-mountain","freestyle","carving"], flex:6,
+    shape:"ディレクショナル", profile:"キャンバー",
+    lengths:[148,151,154,157,160], price:"¥90,000〜110,000",
+    highlights:["小賀坂製フリーライドモデル","アイスバーンに強い","楽天ランキング上位"],
+    url:"https://november-snowboard.com" },
+
+  { brand:"SCOOTER", model:"G-9", isJP:true, isRak:true, isWomens:false,
+    seasons:["25-26","26-27"], levels:["advanced","expert"],
+    styles:["all-mountain","carving","freestyle"], flex:7,
+    shape:"ディレクショナルツイン", profile:"ハイブリッドキャンバー",
+    lengths:[148,151,154,157,160,163], price:"¥98,000〜120,000",
+    highlights:["小賀坂製・国産最高峰オールマウンテン","上級者から絶大な支持","洗練されたデザイン"],
+    url:"https://scooter-snowboard.jp" },
+
+  { brand:"011artistic", model:"BALANCE FLY", isJP:true, isRak:true, isWomens:false,
+    seasons:["25-26","26-27"], levels:["intermediate","advanced"],
+    styles:["gratri","freestyle","park"], flex:3,
+    shape:"ツイン", profile:"ダブルキャンバー",
+    lengths:[143,146,149,152,155,158], price:"¥62,000〜76,000",
+    highlights:["グラトリ特化国産ブランド","超ソフトで柔軟なプレス","楽天グラトリカテゴリ上位"],
+    url:"https://011artistic.com" },
+
+  { brand:"RICE28", model:"RT8", isJP:true, isRak:true, isWomens:false,
+    seasons:["25-26","26-27"], levels:["beginner","intermediate","advanced"],
+    styles:["gratri","freestyle","all-mountain","park"], flex:4,
+    shape:"ツイン", profile:"ハイブリッドキャンバー",
+    lengths:[148,151,154,157], price:"¥54,000〜68,000",
+    highlights:["小賀坂製オガサカクオリティ","グラトリ〜オールラウンドまで","コスパ抜群・入門にも最適"],
+    url:"https://rice28.jp" },
+
+  { brand:"WRX SB", model:"Mk-S", isJP:true, isRak:true, isWomens:false,
+    seasons:["25-26","26-27"], levels:["intermediate","advanced"],
+    styles:["gratri","carving","all-mountain"], flex:5,
+    shape:"ディレクショナルツイン", profile:"ハイブリッドキャンバー",
+    lengths:[138,142,148,152,154], price:"¥72,000〜92,000",
+    highlights:["いぐっちゃん（有名YouTuber）使用モデル","グラトリ＋カービングを高次元で両立","楽天ランキング急上昇中"],
+    url:"https://www.wrxsb.jp" },
+
+  { brand:"GENTEMSTICK", model:"MANTARAY", isJP:true, isRak:false, isWomens:false,
+    seasons:["25-26","26-27"], levels:["advanced","expert"],
+    styles:["powder","freestyle"], flex:5,
+    shape:"ディレクショナル（フィッシュ系）", profile:"ロッカー",
+    lengths:[154,159,164,169], price:"¥138,000〜160,000",
+    highlights:["サーフィンのような乗り心地","日本のパウダー雪に最適","プレミアム国産パウダーボード"],
+    url:"https://gentemstick.com" },
+
+  { brand:"Burton", model:"Custom", isJP:false, isRak:true, isWomens:false,
+    seasons:["25-26","26-27"], levels:["intermediate","advanced","expert"],
+    styles:["all-mountain","carving","freestyle"], flex:6,
+    shape:"ディレクショナルツイン", profile:"ハイブリッドキャンバー",
+    lengths:[150,152,154,156,158,160,162], price:"¥92,000〜106,000",
+    highlights:["バートン不変のフラッグシップ","X Coreカーボン構造","あらゆる地形で最高パフォーマンス"],
+    url:"https://www.burton.com/jp/ja" },
+
+  { brand:"Burton", model:"Custom Flying V", isJP:false, isRak:false, isWomens:false,
+    seasons:["25-26","26-27"], levels:["intermediate","advanced"],
+    styles:["all-mountain","freestyle","park"], flex:5,
+    shape:"ディレクショナルツイン", profile:"フライングV",
+    lengths:[150,152,154,156,158,160], price:"¥86,000〜99,000",
+    highlights:["プレスしやすいフライングV","パークからグルーミングまで対応","扱いやすい中フレックス"],
+    url:"https://www.burton.com/jp/ja" },
+
+  { brand:"Burton", model:"Process", isJP:false, isRak:true, isWomens:false,
+    seasons:["25-26","26-27"], levels:["beginner","intermediate"],
+    styles:["park","freestyle","gratri"], flex:4,
+    shape:"ツイン", profile:"フラットトップロッカー",
+    lengths:[148,150,152,154,156,158], price:"¥72,000〜83,000",
+    highlights:["パーク入門の定番","軽量で扱いやすい","楽天スノボ板ランキング常連"],
+    url:"https://www.burton.com/jp/ja" },
+
+  { brand:"Burton", model:"Deep Thinker", isJP:false, isRak:false, isWomens:false,
+    seasons:["25-26","26-27"], levels:["advanced","expert"],
+    styles:["freestyle","all-mountain","powder"], flex:7,
+    shape:"ディレクショナル", profile:"ハイブリッドキャンバー",
+    lengths:[154,156,158,160,162,164], price:"¥89,000〜104,000",
+    highlights:["パウダー対応ディレクショナル","バックカントリー向き","強烈なキャンバーポップ"],
+    url:"https://www.burton.com/jp/ja" },
+
+  { brand:"Burton", model:"Hometown Hero", isJP:false, isRak:false, isWomens:false,
+    seasons:["25-26"], levels:["beginner","intermediate"],
+    styles:["all-mountain"], flex:3,
+    shape:"ディレクショナルツイン", profile:"フラットトップロッカー",
+    lengths:[148,150,152,154,156,158], price:"¥52,000〜63,000",
+    highlights:["初心者に最適なエントリーモデル","ソフトフレックスで操作が容易","コスパ抜群"],
+    url:"https://www.burton.com/jp/ja" },
+
+  { brand:"Burton", model:"Feelgood", isJP:false, isRak:true, isWomens:true,
+    seasons:["25-26","26-27"], levels:["intermediate","advanced"],
+    styles:["all-mountain","freestyle"], flex:4,
+    shape:"ディレクショナルツイン", profile:"フライングV",
+    lengths:[144,146,148,150,152,154], price:"¥79,000〜92,000",
+    highlights:["女性向けベストセラー","軽量でコントロールしやすい","パークからゲレンデまで万能"],
+    url:"https://www.burton.com/jp/ja" },
+
+  { brand:"Lib Tech", model:"Travis Rice Pro", isJP:false, isRak:false, isWomens:false,
+    seasons:["25-26","26-27"], levels:["expert"],
+    styles:["freestyle","all-mountain","powder"], flex:8,
+    shape:"ディレクショナルツイン", profile:"C3ハイブリッドキャンバー",
+    lengths:[153,156,159,162,165], price:"¥118,000〜135,000",
+    highlights:["プロ監修モデル","マグネトラクション採用","サステナブル素材"],
+    url:"https://www.lib-tech.com" },
+
+  { brand:"Lib Tech", model:"Skate Banana", isJP:false, isRak:false, isWomens:false,
+    seasons:["25-26","26-27"], levels:["beginner","intermediate"],
+    styles:["freestyle","park","all-mountain","gratri"], flex:4,
+    shape:"ツイン", profile:"バナナロッカー",
+    lengths:[147,149,151,153,155,157,159], price:"¥69,000〜81,000",
+    highlights:["伝説のバナナロッカー元祖","プレス系トリックが得意","楽しさ最優先設計"],
+    url:"https://www.lib-tech.com" },
+
+  { brand:"Lib Tech", model:"T.Rice Orca", isJP:false, isRak:false, isWomens:false,
+    seasons:["25-26","26-27"], levels:["advanced","expert"],
+    styles:["powder","freestyle"], flex:6,
+    shape:"ディレクショナルテーパード", profile:"ロッカー/キャンバー",
+    lengths:[147,151,155,159,163,167,171], price:"¥110,000〜128,000",
+    highlights:["パウダー特化","驚異的な浮力","バックカントリー最強クラス"],
+    url:"https://www.lib-tech.com" },
+
+  { brand:"Capita", model:"DOA", isJP:false, isRak:false, isWomens:false,
+    seasons:["25-26","26-27"], levels:["intermediate","advanced"],
+    styles:["all-mountain","freestyle","park"], flex:6,
+    shape:"ツイン", profile:"キャンバー",
+    lengths:[149,151,153,155,157,159,161], price:"¥90,000〜105,000",
+    highlights:["強いキャンバーポップ","超人気オールラウンダー","エネルギッシュな乗り味"],
+    url:"https://www.capitasnowboarding.com" },
+
+  { brand:"Capita", model:"Mercury", isJP:false, isRak:false, isWomens:false,
+    seasons:["25-26","26-27"], levels:["advanced","expert"],
+    styles:["carving","all-mountain"], flex:8,
+    shape:"ディレクショナルツイン", profile:"キャンバー",
+    lengths:[152,154,156,158,160,162], price:"¥108,000〜123,000",
+    highlights:["カービング特化","超高速安定","グラファイト高弾性コア"],
+    url:"https://www.capitasnowboarding.com" },
+
+  { brand:"Capita", model:"Defenders of Awesome", isJP:false, isRak:false, isWomens:false,
+    seasons:["25-26","26-27"], levels:["intermediate"],
+    styles:["park","freestyle","gratri"], flex:4,
+    shape:"ツイン", profile:"キャンバー",
+    lengths:[148,150,152,154,156,158,160], price:"¥80,000〜93,000",
+    highlights:["パーク愛好者のベストセラー","プレスとジャンプを両立","バランスの良いフレックス"],
+    url:"https://www.capitasnowboarding.com" },
+
+  { brand:"Salomon", model:"Assassin", isJP:false, isRak:false, isWomens:false,
+    seasons:["25-26","26-27"], levels:["intermediate","advanced"],
+    styles:["all-mountain","freestyle","carving"], flex:6,
+    shape:"ディレクショナルツイン", profile:"ハイブリッドキャンバー",
+    lengths:[149,152,154,156,158,160,162], price:"¥87,000〜100,000",
+    highlights:["アグレッシブな性能","高速エッジング","ハーフパイプ対応"],
+    url:"https://www.salomon.com/ja-jp" },
+
+  { brand:"Salomon", model:"Huck Knife", isJP:false, isRak:false, isWomens:false,
+    seasons:["25-26","26-27"], levels:["beginner","intermediate"],
+    styles:["park","freestyle","gratri"], flex:4,
+    shape:"ツイン", profile:"ロッカー/キャンバー/ロッカー",
+    lengths:[149,152,155,158,161], price:"¥73,000〜84,000",
+    highlights:["パーク入門モデル","スイッチライディングが容易","キッカーからジブまで"],
+    url:"https://www.salomon.com/ja-jp" },
+
+  { brand:"GNU", model:"Riders Choice", isJP:false, isRak:false, isWomens:false,
+    seasons:["25-26","26-27"], levels:["advanced","expert"],
+    styles:["all-mountain","freestyle","carving"], flex:7,
+    shape:"ディレクショナルツイン", profile:"C2 BTX",
+    lengths:[152,154,156,158,160,162], price:"¥97,000〜112,000",
+    highlights:["競技レベル性能","強いポップ","ハードバーン対応"],
+    url:"https://www.gnusnowboards.com" },
+
+  { brand:"Jones", model:"Storm Chaser", isJP:false, isRak:false, isWomens:false,
+    seasons:["25-26","26-27"], levels:["intermediate","advanced"],
+    styles:["powder","freestyle"], flex:6,
+    shape:"ディレクショナルテーパード", profile:"ロッカー/キャンバー",
+    lengths:[149,152,155,158,161,164], price:"¥100,000〜118,000",
+    highlights:["パウダー特化","テーパードシェイプで浮力◎","バックカントリーに最適"],
+    url:"https://jonessnowboards.com" },
+
+  { brand:"Jones", model:"Mountain Twin", isJP:false, isRak:false, isWomens:false,
+    seasons:["25-26","26-27"], levels:["intermediate","advanced"],
+    styles:["all-mountain","freestyle"], flex:5,
+    shape:"ディレクショナルツイン", profile:"キャンバー",
+    lengths:[149,152,155,158,161], price:"¥93,000〜110,000",
+    highlights:["サステナブル製造","バランス型キャンバー","地形全般対応"],
+    url:"https://jonessnowboards.com" },
+
+  { brand:"Never Summer", model:"Ripsaw", isJP:false, isRak:false, isWomens:false,
+    seasons:["25-26","26-27"], levels:["advanced","expert"],
+    styles:["carving","all-mountain","freestyle"], flex:8,
+    shape:"ディレクショナル", profile:"ハイブリッドロッカー/キャンバー",
+    lengths:[152,154,156,158,160,162,164], price:"¥97,000〜114,000",
+    highlights:["カービング怪物モデル","ハンドメイドUSA","高速安定性が圧倒的"],
+    url:"https://www.neversummer.com" },
+
+  { brand:"Rossignol", model:"XV Sashimi LF", isJP:false, isRak:false, isWomens:false,
+    seasons:["25-26","26-27"], levels:["advanced","expert"],
+    styles:["carving","all-mountain"], flex:8,
+    shape:"ディレクショナル", profile:"フルキャンバー",
+    lengths:[152,155,158,161,164], price:"¥100,000〜118,000",
+    highlights:["ヨーロッパ生まれのカービング特化","フルキャンバー最強エッジング","競技レベル性能"],
+    url:"https://www.rossignol.com/jp" },
+
+  { brand:"Rossignol", model:"One LF", isJP:false, isRak:false, isWomens:false,
+    seasons:["25-26"], levels:["beginner","intermediate"],
+    styles:["all-mountain"], flex:3,
+    shape:"ツイン", profile:"フラット〜ロッカー",
+    lengths:[148,150,152,154,156,158], price:"¥49,000〜61,000",
+    highlights:["超乗りやすいエントリーモデル","安定感抜群","初めての一本に最適"],
+    url:"https://www.rossignol.com/jp" },
+];
+
+// ═══════════════════════════════════════════
+//  STATE
+// ═══════════════════════════════════════════
+let selLevel='', selStyles=new Set();
+
+const SL={
+  'all-mountain':'🏔 オールマウンテン','freestyle':'🤸 フリースタイル',
+  'powder':'💨 パウダー','carving':'⚡ カービング','park':'🎪 パーク・ジブ','gratri':'💃 グラトリ'
+};
+const LL={beginner:'初心者',intermediate:'中級者',advanced:'上級者',expert:'エキスパート'};
+
+function setLevel(btn){
+  document.querySelectorAll('#level-pills .pbtn').forEach(b=>b.classList.remove('lv-sel'));
+  btn.classList.add('lv-sel'); selLevel=btn.dataset.lv;
+}
+function toggleStyle(btn){
+  const st=btn.dataset.st;
+  if(selStyles.has(st)){selStyles.delete(st);btn.classList.remove('sel')}
+  else{selStyles.add(st);btn.classList.add('sel')}
+}
+function updateFlex(v){
+  document.getElementById('flex-num').textContent=v;
+  document.getElementById('fxdesc').textContent=
+    v<=2?'超ソフト — プレス系・グラトリ初心者向き':v<=4?'ソフト — グラトリ・フリースタイル向き':
+    v<=6?'ミディアム — オールラウンド・バランス型':v<=8?'ミディアムハード — カービング・フリーライド向き':
+    '超ハード — 高速競技・アルペン向き';
+}
+
+// ═══════════════════════════════════════════
+//  RECOMMENDATION ENGINE
+// ═══════════════════════════════════════════
+function calcLen(b,h,w,styles,lv){
+  let x=h-15;
+  if(styles.has('powder')) x+=7;
+  if(styles.has('park')||styles.has('gratri')) x-=5;
+  else if(styles.has('freestyle')) x-=3;
+  if(styles.has('carving')) x+=4;
+  if(w>=85) x+=3; else if(w>=75) x+=1; else if(w<=55) x-=2;
+  if(lv==='beginner') x-=3; if(lv==='expert') x+=2;
+  return b.lengths.reduce((p,c)=>Math.abs(c-x)<Math.abs(p-x)?c:p);
+}
+function score(b,gender,lv,styles,flex){
+  if(gender==='male'&&b.isWomens) return -1;
+  const ok={beginner:['beginner'],intermediate:['beginner','intermediate'],
+    advanced:['intermediate','advanced'],expert:['advanced','expert']}[lv]||['intermediate'];
+  if(!b.levels.some(l=>ok.includes(l))) return -1;
+  let sc=b.levels.filter(l=>ok.includes(l)).length*12;
+  sc+=styles.size>0?b.styles.filter(s=>styles.has(s)).length*22:8;
+  sc+=Math.max(0,20-Math.abs(b.flex-flex)*4);
+  if(styles.has('gratri')&&b.isJP) sc+=10;
+  if(b.isRak) sc+=5;
+  return sc;
+}
+function buildReason(b,lv,styles,len){
+  const matched=b.styles.filter(s=>styles.has(s)).map(s=>SL[s]).filter(Boolean);
+  let r=`${LL[lv]}の方に最適な${b.isJP?'国産':''}モデルです。`;
+  if(matched.length) r+=`${matched.join('・')}との相性が抜群で、`;
+  r+=`フレックス${b.flex}/10の${b.flex<=4?'ソフト':b.flex<=6?'バランス良い':'しっかりした'}乗り味と`;
+  r+=`${b.profile}プロファイルが`;
+  r+=styles.has('gratri')||styles.has('freestyle')?'グラトリ・プレス・スピン':
+     styles.has('carving')?'鋭いカービング':styles.has('powder')?'パウダー浮力':'オールラウンドな走り';
+  r+='をサポートします。';
+  if(b.isJP) r+='国内工場製造で品質も折り紙付き。';
+  r+=`推奨レングス${len}cmがあなたの体格にぴったりです。`;
+  return r;
+}
+
+// ═══════════════════════════════════════════
+//  FIND BOARDS
+// ═══════════════════════════════════════════
+function findBoards(){
+  const h=parseInt(document.getElementById('height').value);
+  const w=parseInt(document.getElementById('weight').value);
+  const gender=document.getElementById('gender').value;
+  const flex=parseInt(document.getElementById('flex-slider').value);
+  const miss=[];
+  if(!h||h<130||h>220) miss.push('身長'); if(!w||w<30||w>160) miss.push('体重');
+  if(!selLevel) miss.push('レベル'); if(!selStyles.size) miss.push('ライドスタイル');
+  const msg=document.getElementById('nmsg');
+  if(miss.length){msg.textContent='⚠️ 未入力: '+miss.join(' / ');return}
+  msg.textContent='';
+  document.getElementById('main-form').style.display='none';
+  document.getElementById('results-section').style.display='none';
+  document.getElementById('loading-section').style.display='block';
+  window.scrollTo({top:0,behavior:'smooth'});
+
+  setTimeout(()=>{
+    const scored=DB.map(b=>{
+      const sc=score(b,gender,selLevel,selStyles,flex);
+      return{b,sc,len:calcLen(b,h,w,selStyles,selLevel)};
+    }).filter(x=>x.sc>=0).sort((a,b)=>b.sc-a.sc).slice(0,3);
+
+    document.getElementById('loading-section').style.display='none';
+    document.getElementById('results-section').style.display='block';
+    const sty=[...selStyles].map(s=>SL[s]).join('・');
+    document.getElementById('res-sub').textContent=
+      `${LL[selLevel]} / ${sty} / フレックス${flex} / 身長${h}cm・体重${w}kg`;
+
+    const cont=document.getElementById('board-cards');
+    cont.innerHTML='';
+    if(!scored.length){
+      cont.innerHTML='<div class="nomatch"><div class="nmi">🤔</div><h3>マッチする板が見つかりませんでした</h3><p>条件を広げてもう一度試してみてください。</p></div>';
+      return;
+    }
+
+    const rk=['rank1','rank2','rank3'], re=['🥇','🥈','🥉'];
+    scored.forEach((item,i)=>{
+      const b=item.b;
+      const sc=Math.min(99,Math.round(item.sc*1.4));
+
+      // ★ ブランド・モデル専用SVGを生成
+      const svgSrc=makeBoardSVG(b.brand, b.model);
+
+      // バッジ
+      const bdgs=[];
+      if(i===0) bdgs.push('<span class="bdg bdg-best">🏆 ベストマッチ</span>');
+      if(b.isJP) bdgs.push('<span class="bdg bdg-jp">🇯🇵 国産</span>');
+      if(b.isRak) bdgs.push('<span class="bdg bdg-rak">🛒 楽天人気</span>');
+      if(b.seasons.includes('26-27')) bdgs.push('<span class="bdg bdg-new">✨ 26-27対応</span>');
+
+      // スタイルタグ
+      const stags=b.styles.map(s=>`<span class="btag-c${s==='gratri'?' jp':''}">${SL[s]||s}</span>`).join('');
+
+      // シーズンバッジ
+      const stags2=b.seasons.map(s=>`<span class="stag${s==='26-27'?' nxt':' cur'}">${s}シーズン</span>`).join('');
+
+      const card=document.createElement('div');
+      card.className=`bcard ${rk[i]}`;
+      card.innerHTML=`
+        <div class="bcard-head">
+          <div class="bcard-rank">${re[i]}</div>
+          <div class="bcard-info">
+            <div class="bcard-badges">${bdgs.join('')}</div>
+            <div class="bc-brand">${b.brand}</div>
+            <div class="bc-name">${b.model}</div>
+            <div class="bc-score-row">
+              <div class="score-ring">
+                <span class="sc-n">${sc}</span>
+                <span class="sc-l">SCORE</span>
+              </div>
+            </div>
+          </div>
+          <!-- ★ 板の画像 — 縦長・右端 -->
+          <div class="board-graphic">
+            <img src="${svgSrc}" alt="${b.brand} ${b.model}の板"/>
+          </div>
+        </div>
+        <div class="season-row">${stags2}</div>
+        <div class="bc-tags">${stags}</div>
+        <div class="bc-reason">${buildReason(b,selLevel,selStyles,item.len)}</div>
+        <div class="bc-specs">
+          <div class="sp"><div class="sp-l">推奨レングス</div><div class="sp-v">${item.len}cm</div></div>
+          <div class="sp"><div class="sp-l">フレックス</div><div class="sp-v">${b.flex}/10</div></div>
+          <div class="sp"><div class="sp-l">プロファイル</div><div class="sp-v sm">${b.profile}</div></div>
+          <div class="sp"><div class="sp-l">シェイプ</div><div class="sp-v sm">${b.shape}</div></div>
+          <div class="sp"><div class="sp-l">価格帯</div><div class="sp-v sm">${b.price}</div></div>
+        </div>
+        <div class="bc-foot">
+          <div class="hls">${b.highlights.slice(0,3).map(h=>`<span class="hl">${h}</span>`).join('')}</div>
+          <a class="off-link" href="${b.url}" target="_blank" rel="noopener">公式サイト →</a>
+        </div>`;
+      cont.appendChild(card);
+    });
+
+    launchConfetti();
+    document.getElementById('results-section').scrollIntoView({behavior:'smooth',block:'start'});
+  },1600);
+}
+
+function retrySearch(){
+  document.getElementById('results-section').style.display='none';
+  document.getElementById('main-form').style.display='block';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function launchConfetti(){
+  const c=['#FFE500','#FF4757','#00D2FF','#00F5A0','#B24BF3','#FF9500'];
+  for(let i=0;i<65;i++){
+    const el=document.createElement('div');
+    el.className='cf';
+    el.style.cssText=`left:${Math.random()*100}vw;top:-20px;
+      background:${c[Math.floor(Math.random()*c.length)]};
+      width:${6+Math.random()*10}px;height:${6+Math.random()*10}px;
+      border-radius:${Math.random()>.5?'50%':'2px'};
+      animation-delay:${Math.random()*1.5}s;animation-duration:${2+Math.random()*2}s`;
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(),5000);
+  }
+}
+</script>
+
+</body>
+</html>
