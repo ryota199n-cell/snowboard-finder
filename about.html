@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>運営者情報 | BOARD FINDER</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&family=Nunito:wght@400;600;700;800;900&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito',sans-serif;background:#0F1522;color:#1A1A2E;min-height:100vh}
+
+.nav{background:#0D1B2A;border-bottom:3px solid #1A1A2E;padding:16px 24px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'Russo One',sans-serif;font-size:20px;color:#FFE500;text-decoration:none;letter-spacing:.05em}
+.nav-logo span{color:#fff}
+.nav-links{display:flex;gap:16px}
+.nav-links a{color:rgba(255,255,255,.6);font-size:13px;font-weight:700;text-decoration:none;transition:color .15s}
+.nav-links a:hover{color:#FFE500}
+
+.hero{background:#0D1B2A;padding:48px 24px 44px;border-bottom:3px solid #1A1A2E;text-align:center}
+.hero-chip{display:inline-block;background:#FFE500;color:#1A1A2E;font-weight:900;font-size:11px;letter-spacing:.2em;text-transform:uppercase;padding:5px 18px;border-radius:100px;border:3px solid #1A1A2E;box-shadow:4px 4px 0 #1A1A2E;margin-bottom:18px}
+.hero h1{font-family:'Russo One',sans-serif;font-size:clamp(32px,7vw,56px);color:#fff;line-height:1}
+.hero h1 em{font-style:normal;color:#FFE500}
+
+.main{max-width:760px;margin:0 auto;padding:48px 24px 100px}
+
+/* プロフィールカード */
+.profile-card{background:#fff;border:3px solid #1A1A2E;border-radius:20px;box-shadow:8px 8px 0 #1A1A2E;padding:36px 32px;margin-bottom:24px;display:flex;gap:28px;align-items:flex-start}
+.profile-icon{width:100px;height:100px;min-width:100px;border-radius:20px;border:3px solid #1A1A2E;background:#0D1B2A;display:flex;align-items:center;justify-content:center;font-size:52px;box-shadow:4px 4px 0 #1A1A2E;flex-shrink:0}
+.profile-right{flex:1}
+.profile-name{font-family:'Russo One',sans-serif;font-size:24px;color:#1A1A2E;margin-bottom:4px}
+.profile-en{font-size:12px;font-weight:700;color:rgba(0,0,0,.38);letter-spacing:.15em;text-transform:uppercase;margin-bottom:12px}
+.profile-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.ptag{font-size:11px;font-weight:800;padding:4px 12px;border-radius:100px;border:2px solid #1A1A2E}
+.ptag.y{background:#FFE500;color:#1A1A2E}
+.ptag.b{background:#0D1B2A;color:#FFE500}
+.ptag.g{background:#00F5A0;color:#1A1A2E}
+.profile-text{font-size:14px;line-height:1.85;color:#333}
+@media(max-width:520px){
+  .profile-card{flex-direction:column;align-items:center;text-align:center}
+  .profile-tags{justify-content:center}
+}
+
+.section{background:#fff;border:3px solid #1A1A2E;border-radius:20px;box-shadow:6px 6px 0 #1A1A2E;padding:32px 28px;margin-bottom:20px;position:relative;overflow:hidden}
+.section::before{content:'';position:absolute;top:0;left:0;right:0;height:5px}
+.c1::before{background:#FF4757}
+.c2::before{background:#00D2FF}
+.c3::before{background:#00F5A0}
+.c4::before{background:#B24BF3}
+
+.section h2{font-family:'Russo One',sans-serif;font-size:clamp(16px,3vw,20px);color:#1A1A2E;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.section h2 .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.c1 h2 .dot{background:#FF4757}
+.c2 h2 .dot{background:#00D2FF}
+.c3 h2 .dot{background:#00F5A0}
+.c4 h2 .dot{background:#B24BF3}
+
+.info-table{width:100%;border-collapse:collapse}
+.info-table tr{border-bottom:2px solid #F0F0F0}
+.info-table tr:last-child{border-bottom:none}
+.info-table th{font-size:12px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:rgba(0,0,0,.38);padding:12px 16px 12px 0;text-align:left;white-space:nowrap;width:130px}
+.info-table td{font-size:14px;font-weight:700;color:#1A1A2E;padding:12px 0}
+.info-table td a{color:#FF4757;text-decoration:none;border-bottom:2px solid #FF4757;font-weight:800}
+
+.mission-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:480px){.mission-grid{grid-template-columns:1fr}}
+.mission-item{background:#FFFEF0;border:2px solid #1A1A2E;border-radius:12px;padding:16px;box-shadow:3px 3px 0 #1A1A2E}
+.mission-icon{font-size:28px;margin-bottom:8px}
+.mission-ttl{font-family:'Russo One',sans-serif;font-size:14px;color:#1A1A2E;margin-bottom:6px}
+.mission-txt{font-size:13px;color:#555;line-height:1.65}
+
+.cta-box{background:#0D1B2A;border:3px solid #1A1A2E;border-radius:16px;padding:28px;text-align:center;box-shadow:6px 6px 0 #1A1A2E}
+.cta-box p{font-size:14px;color:rgba(255,255,255,.7);margin-bottom:18px;font-weight:600;line-height:1.65}
+.cta-box a{display:inline-block;background:#FF4757;color:#fff;font-family:'Russo One',sans-serif;font-size:18px;padding:14px 40px;border-radius:100px;border:3px solid #FFE500;box-shadow:4px 4px 0 #FFE500;text-decoration:none;transition:all .15s cubic-bezier(.34,1.56,.64,1)}
+.cta-box a:hover{transform:translateY(-3px);box-shadow:6px 6px 0 #FFE500}
+
+.footer{text-align:center;padding:26px 20px;background:#0D1B2A;color:rgba(255,255,255,.38);font-size:12px;font-weight:600;border-top:3px solid #1A1A2E}
+.footer a{color:rgba(255,255,255,.5);text-decoration:none;margin:0 8px}
+.footer a:hover{color:#FFE500}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-logo" href="/"><span>BOARD</span>FINDER</a>
+  <div class="nav-links">
+    <a href="/">🏂 板を探す</a>
+    <a href="/privacy.html">プライバシーポリシー</a>
+    <a href="/contact.html">お問い合わせ</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-chip">About</div>
+  <h1>運営者<em>情報</em></h1>
+</div>
+
+<main class="main">
+
+  <!-- プロフィール -->
+  <div class="profile-card">
+    <div class="profile-icon">🏂</div>
+    <div class="profile-right">
+      <div class="profile-name">BOARD FINDER 運営者</div>
+      <div class="profile-en">Site Operator</div>
+      <div class="profile-tags">
+        <span class="ptag y">🇯🇵 スノーボード好き</span>
+        <span class="ptag b">国産ブランド推し</span>
+        <span class="ptag g">グラトリ・カービング</span>
+      </div>
+      <p class="profile-text">
+        「自分に合った板を選ぶのが難しい」という悩みを解決するために、BOARD FINDERを作りました。身長・体重・レベル・スタイルを入力するだけで、国産ブランドから海外の人気ブランドまで、あなたにぴったりの一枚をAIがご提案します。
+      </p>
+    </div>
+  </div>
+
+  <!-- サイト情報 -->
+  <div class="section c1">
+    <h2><span class="dot"></span>サイト情報</h2>
+    <table class="info-table">
+      <tr>
+        <th>サイト名</th>
+        <td>BOARD FINDER</td>
+      </tr>
+      <tr>
+        <th>URL</th>
+        <td>https://snowboard-finder.vercel.app</td>
+      </tr>
+      <tr>
+        <th>運営者</th>
+        <td>BOARD FINDER 運営者</td>
+      </tr>
+      <tr>
+        <th>開設</th>
+        <td>2025年</td>
+      </tr>
+      <tr>
+        <th>メール</th>
+        <td><a href="mailto:snowboardfinder.jp@gmail.com">snowboardfinder.jp@gmail.com</a></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- サイトのミッション -->
+  <div class="section c2">
+    <h2><span class="dot"></span>BOARD FINDERについて</h2>
+    <div class="mission-grid">
+      <div class="mission-item">
+        <div class="mission-icon">🎯</div>
+        <div class="mission-ttl">ピッタリの板を即提案</div>
+        <p class="mission-txt">身長・体重・レベル・スタイルを入力するだけで、AIがあなたに最適な板を3本選定します</p>
+      </div>
+      <div class="mission-item">
+        <div class="mission-icon">🇯🇵</div>
+        <div class="mission-ttl">国産ブランドを網羅</div>
+        <p class="mission-txt">OGASAKA・FNTC・YONEX・NOVEMBERなど、楽天市場で人気の国産ブランドを多数掲載</p>
+      </div>
+      <div class="mission-item">
+        <div class="mission-icon">📏</div>
+        <div class="mission-ttl">レングスを自動計算</div>
+        <p class="mission-txt">体重・身長・スタイルから最適な板の長さを自動で算出し、初心者でも迷わず選べます</p>
+      </div>
+      <div class="mission-item">
+        <div class="mission-icon">🆓</div>
+        <div class="mission-ttl">完全無料で利用可能</div>
+        <p class="mission-txt">登録不要・完全無料。何度でも条件を変えて検索できます</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 収益化の開示 -->
+  <div class="section c3">
+    <h2><span class="dot"></span>収益化・広告について</h2>
+    <p style="font-size:14px;line-height:1.85;color:#333;margin-bottom:12px">当サイトは以下の方法で運営費用を賄っています。コンテンツの公平性・正確性には影響しません。</p>
+    <table class="info-table">
+      <tr>
+        <th>Google AdSense</th>
+        <td style="font-size:13px;color:#555;line-height:1.6">Googleが提供する広告配信サービスを利用しています。ユーザーの興味に基づいた広告が表示される場合があります</td>
+      </tr>
+      <tr>
+        <th>楽天アフィリエイト</th>
+        <td style="font-size:13px;color:#555;line-height:1.6">当サイトのリンクから楽天市場での購入が発生した場合、運営者に紹介料が支払われることがあります。紹介料はユーザーの購入価格に影響しません</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 掲載情報について -->
+  <div class="section c4">
+    <h2><span class="dot"></span>掲載情報について</h2>
+    <p style="font-size:14px;line-height:1.85;color:#333">当サイトに掲載しているスノーボード製品の情報（価格・スペック・在庫状況など）は、各メーカー・ブランドの公開情報をもとに作成しています。情報は予告なく変更される場合がありますので、最新情報は必ず公式サイトや各販売店でご確認ください。</p>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <p>あなたに最適なスノーボードを今すぐ見つけよう！<br>身長・体重・スタイルを入力するだけで即提案 🏂</p>
+    <a href="/">板を探してみる →</a>
+  </div>
+
+</main>
+
+<footer class="footer">
+  🏂 BOARD FINDER 2025-26/26-27 |
+  <a href="/">トップ</a>
+  <a href="/privacy.html">プライバシーポリシー</a>
+  <a href="/about.html">運営者情報</a>
+  <a href="/contact.html">お問い合わせ</a>
+</footer>
+
+</body>
+</html>

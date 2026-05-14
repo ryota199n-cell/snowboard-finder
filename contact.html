@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>お問い合わせ | BOARD FINDER</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&family=Nunito:wght@400;600;700;800;900&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito',sans-serif;background:#0F1522;color:#1A1A2E;min-height:100vh}
+
+.nav{background:#0D1B2A;border-bottom:3px solid #1A1A2E;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.nav-logo{font-family:'Russo One',sans-serif;font-size:20px;color:#FFE500;text-decoration:none;letter-spacing:.05em}
+.nav-logo span{color:#fff}
+.nav-links{display:flex;gap:16px;flex-wrap:wrap}
+.nav-links a{color:rgba(255,255,255,.6);font-size:13px;font-weight:700;text-decoration:none;transition:color .15s}
+.nav-links a:hover{color:#FFE500}
+
+.hero{background:#0D1B2A;padding:48px 24px 44px;border-bottom:3px solid #1A1A2E;text-align:center}
+.hero-chip{display:inline-block;background:#FFE500;color:#1A1A2E;font-weight:900;font-size:11px;letter-spacing:.2em;text-transform:uppercase;padding:5px 18px;border-radius:100px;border:3px solid #1A1A2E;box-shadow:4px 4px 0 #1A1A2E;margin-bottom:18px}
+.hero h1{font-family:'Russo One',sans-serif;font-size:clamp(32px,7vw,56px);color:#fff;line-height:1}
+.hero h1 em{font-style:normal;color:#FFE500}
+.hero-sub{font-size:14px;color:rgba(255,255,255,.55);margin-top:12px;font-weight:600}
+
+.main{max-width:640px;margin:0 auto;padding:48px 24px 100px}
+
+/* メール案内カード */
+.mail-card{background:#fff;border:3px solid #1A1A2E;border-radius:20px;box-shadow:8px 8px 0 #1A1A2E;overflow:hidden;margin-bottom:24px}
+.mail-card-top{background:#FF4757;padding:20px 28px;display:flex;align-items:center;gap:14px}
+.mail-icon{font-size:40px}
+.mail-card-top h2{font-family:'Russo One',sans-serif;font-size:22px;color:#fff;letter-spacing:.03em}
+.mail-card-top p{font-size:12px;color:rgba(255,255,255,.75);margin-top:2px;font-weight:600}
+.mail-card-body{padding:28px}
+.mail-address-wrap{background:#FFFEF0;border:3px solid #1A1A2E;border-radius:12px;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px;box-shadow:3px 3px 0 #1A1A2E}
+.mail-address{font-family:'Russo One',sans-serif;font-size:clamp(14px,3vw,18px);color:#1A1A2E;word-break:break-all}
+.mail-btn{display:inline-flex;align-items:center;gap:6px;background:#FF4757;color:#fff;font-family:'Russo One',sans-serif;font-size:14px;padding:12px 22px;border-radius:100px;border:3px solid #1A1A2E;box-shadow:4px 4px 0 #1A1A2E;text-decoration:none;white-space:nowrap;transition:all .15s cubic-bezier(.34,1.56,.64,1);flex-shrink:0}
+.mail-btn:hover{transform:translateY(-2px);box-shadow:6px 6px 0 #1A1A2E}
+.mail-note{font-size:13px;color:#666;line-height:1.75}
+.mail-note strong{color:#1A1A2E;font-weight:900}
+
+/* よくある質問 */
+.section{background:#fff;border:3px solid #1A1A2E;border-radius:20px;box-shadow:6px 6px 0 #1A1A2E;padding:30px 28px;margin-bottom:20px;position:relative;overflow:hidden}
+.section::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:#00D2FF}
+.section h2{font-family:'Russo One',sans-serif;font-size:clamp(16px,3vw,20px);color:#1A1A2E;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.section h2::before{content:'';display:inline-block;width:6px;height:22px;background:#00D2FF;border-radius:3px;flex-shrink:0}
+
+.faq-item{border-bottom:2px solid #F0F0F0;padding:14px 0}
+.faq-item:last-child{border-bottom:none;padding-bottom:0}
+.faq-q{font-size:14px;font-weight:900;color:#1A1A2E;margin-bottom:8px;display:flex;align-items:flex-start;gap:8px}
+.faq-q::before{content:'Q';display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;min-width:22px;background:#FF4757;color:#fff;font-size:12px;font-weight:900;border-radius:6px;margin-top:1px}
+.faq-a{font-size:13px;color:#555;line-height:1.75;display:flex;align-items:flex-start;gap:8px;padding-left:30px}
+.faq-a::before{content:'A';display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;min-width:22px;background:#00D2FF;color:#1A1A2E;font-size:12px;font-weight:900;border-radius:6px;margin-top:1px}
+
+/* 対応時間 */
+.notice-box{background:#0D1B2A;border:3px solid #1A1A2E;border-radius:14px;padding:20px 22px;display:flex;align-items:flex-start;gap:12px}
+.notice-icon{font-size:24px;flex-shrink:0;margin-top:2px}
+.notice-text h3{font-family:'Russo One',sans-serif;font-size:16px;color:#FFE500;margin-bottom:6px}
+.notice-text p{font-size:13px;color:rgba(255,255,255,.65);line-height:1.7;font-weight:600}
+
+/* CTA */
+.cta-box{background:#0D1B2A;border:3px solid #1A1A2E;border-radius:16px;padding:28px;text-align:center;box-shadow:6px 6px 0 #1A1A2E;margin-top:24px}
+.cta-box p{font-size:14px;color:rgba(255,255,255,.7);margin-bottom:18px;font-weight:600;line-height:1.65}
+.cta-box a{display:inline-block;background:#FFE500;color:#1A1A2E;font-family:'Russo One',sans-serif;font-size:18px;padding:14px 40px;border-radius:100px;border:3px solid #1A1A2E;box-shadow:4px 4px 0 #1A1A2E;text-decoration:none;transition:all .15s cubic-bezier(.34,1.56,.64,1)}
+.cta-box a:hover{transform:translateY(-3px);box-shadow:6px 6px 0 #1A1A2E}
+
+.footer{text-align:center;padding:26px 20px;background:#0D1B2A;color:rgba(255,255,255,.38);font-size:12px;font-weight:600;border-top:3px solid #1A1A2E}
+.footer a{color:rgba(255,255,255,.5);text-decoration:none;margin:0 8px}
+.footer a:hover{color:#FFE500}
+
+@media(max-width:480px){
+  .mail-address-wrap{flex-direction:column;align-items:flex-start}
+  .mail-btn{width:100%;justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-logo" href="/"><span>BOARD</span>FINDER</a>
+  <div class="nav-links">
+    <a href="/">🏂 板を探す</a>
+    <a href="/privacy.html">プライバシーポリシー</a>
+    <a href="/about.html">運営者情報</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-chip">Contact</div>
+  <h1>お問い<em>合わせ</em></h1>
+  <p class="hero-sub">ご質問・ご要望・不具合のご報告はこちらからどうぞ</p>
+</div>
+
+<main class="main">
+
+  <!-- メール案内 -->
+  <div class="mail-card">
+    <div class="mail-card-top">
+      <div class="mail-icon">✉️</div>
+      <div>
+        <h2>メールでお問い合わせ</h2>
+        <p>以下のアドレスに直接メールをお送りください</p>
+      </div>
+    </div>
+    <div class="mail-card-body">
+      <div class="mail-address-wrap">
+        <span class="mail-address">snowboardfinder.jp@gmail.com</span>
+        <a class="mail-btn" href="mailto:snowboardfinder.jp@gmail.com">
+          📧 メールを送る
+        </a>
+      </div>
+      <p class="mail-note">
+        <strong>件名の例：</strong>「板の情報について」「不具合の報告」「掲載希望のブランドについて」など、件名にお問い合わせ内容を簡単に記載いただけると返信がスムーズです。<br><br>
+        <strong>返信について：</strong>通常2〜5営業日以内にご返信いたします。返信が届かない場合は迷惑メールフォルダをご確認ください。
+      </p>
+    </div>
+  </div>
+
+  <!-- 対応時間 -->
+  <div class="notice-box" style="margin-bottom:24px">
+    <div class="notice-icon">⏰</div>
+    <div class="notice-text">
+      <h3>対応時間について</h3>
+      <p>当サイトは個人で運営しているため、お返事まで数日かかる場合がございます。お急ぎの場合は、各ブランドの公式サイトへ直接お問い合わせいただくことをおすすめします。</p>
+    </div>
+  </div>
+
+  <!-- よくある質問 -->
+  <div class="section">
+    <h2>よくあるご質問</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">掲載されていないブランド・モデルのリクエストはできますか？</div>
+      <div class="faq-a">はい、可能です。ブランド名・モデル名をメールでお知らせください。内容を確認のうえ、順次追加を検討いたします。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">板の価格やスペックが実際と異なります</div>
+      <div class="faq-a">掲載情報は各ブランドの公開情報をもとにしていますが、シーズンにより変更される場合があります。最新情報は公式サイトでご確認のうえ、相違点をメールでお知らせいただけると助かります。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">サイトが正しく動作しない・表示がおかしい</div>
+      <div class="faq-a">ご利用のブラウザ・デバイス・発生している症状を添えてメールでご連絡ください。確認のうえ対応いたします。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">入力した身長・体重などのデータは保存されますか？</div>
+      <div class="faq-a">いいえ、一切保存されません。入力データはお使いのブラウザ内でのみ処理され、サーバーに送信・記録されることはありません。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">広告・アフィリエイトに関する掲載依頼はできますか？</div>
+      <div class="faq-a">現在は個人運営のため広告掲載依頼は受け付けておりません。今後変更があった場合は本ページにてご案内いたします。</div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <p>板探しに戻る？<br>あなたにぴったりの一枚を今すぐ見つけよう 🏂</p>
+    <a href="/">板を探してみる →</a>
+  </div>
+
+</main>
+
+<footer class="footer">
+  🏂 BOARD FINDER 2025-26/26-27 |
+  <a href="/">トップ</a>
+  <a href="/privacy.html">プライバシーポリシー</a>
+  <a href="/about.html">運営者情報</a>
+  <a href="/contact.html">お問い合わせ</a>
+</footer>
+
+</body>
+</html>
