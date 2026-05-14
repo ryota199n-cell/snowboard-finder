@@ -504,6 +504,23 @@ input[type=range]::-moz-range-thumb{
   .site-nav{padding:12px 14px}
   .nav-links a{font-size:11px;padding:5px 9px}
 }
+
+/* ── RAKUTEN AFFILIATE BUTTON ── */
+.rak-link{
+  display:inline-flex;align-items:center;gap:5px;
+  font-family:'Russo One',sans-serif;font-size:12px;
+  background:#BF0000;color:#FFE500;
+  padding:10px 18px;border-radius:100px;
+  border:3px solid #1A1A2E;box-shadow:5px 5px 0 #1A1A2E;
+  text-decoration:none;white-space:nowrap;
+  transition:all .15s cubic-bezier(.34,1.56,.64,1);
+}
+.rak-link:hover{transform:translateY(-2px);box-shadow:7px 7px 0 #1A1A2E}
+.btn-group{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+@media(max-width:600px){
+  .btn-group{flex-direction:column}
+  .rak-link,.off-link{width:100%;justify-content:center}
+}
 </style>
 </head>
 <body style="background:#0F1522;color:#1A1A2E;">
@@ -654,6 +671,35 @@ input[type=range]::-moz-range-thumb{
 </footer>
 
 <script>
+
+// ── 楽天アフィリエイトリンクマップ ──────────────────────────
+const RAKUTEN = {
+  "FNTC": {
+    "TNT C": "https://hb.afl.rakuten.co.jp/ichiba/53cae4d8.51adfa10.53cae4d9.7e691722/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Foutdoor-zousan%2Ffntc-tnt-c%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9",
+    "TNT R": "https://hb.afl.rakuten.co.jp/ichiba/53caf62a.2aac2737.53caf62b.7908d6bb/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fauc-breakout%2Ftntnc%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9"
+  },
+  "OGASAKA": {
+    "CT": "https://hb.afl.rakuten.co.jp/ichiba/53caf62a.2aac2737.53caf62b.7908d6bb/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fauc-breakout%2F12-ct-151%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9"
+  },
+  "Burton": {
+    "Process": "https://hb.afl.rakuten.co.jp/ichiba/53cb28bc.129fd2de.53cb28bd.5178de7d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffleaboardshop002%2F24bt01mpros%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9"
+  },
+  "YONEX": {
+    "ACHSE": "https://hb.afl.rakuten.co.jp/ichiba/53cb02fb.b18630d3.53cb02fc.779c9e6d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fboomsports-ec%2F26-ah25%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9"
+  },
+  "NOVEMBER": {
+    "ARTISTE": "https://hb.afl.rakuten.co.jp/ichiba/53cb30b9.107a7a39.53cb30ba.dc14dbfb/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fabeam-webstore%2F10008330%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9"
+  },
+  "RICE28": {
+    "RT8": "https://hb.afl.rakuten.co.jp/ichiba/53cb0977.7c2e00ac.53cb0978.5ef9f80d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fshift-snowboard%2F24_rice_rt8_tp_%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9"
+  },
+  "Salomon": {
+    "Assassin": "https://hb.afl.rakuten.co.jp/ichiba/53cb34ba.56511418.53cb34bb.a5a4c7de/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ff-janck%2F126sal1011%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9"
+  }
+};
+function getRakutenUrl(brand, model) {
+  return (RAKUTEN[brand] && RAKUTEN[brand][model]) ? RAKUTEN[brand][model] : null;
+}
 // ═══════════════════════════════════════════════════════
 //  SVG BOARD GENERATOR — ブランドカラーで板を描画
 // ═══════════════════════════════════════════════════════
@@ -1158,7 +1204,10 @@ function findBoards(){
         </div>
         <div class="bc-foot">
           <div class="hls">${b.highlights.slice(0,3).map(h=>`<span class="hl">${h}</span>`).join('')}</div>
-          <a class="off-link" href="${b.url}" target="_blank" rel="noopener">公式サイト →</a>
+          <div class="btn-group">
+            ${getRakutenUrl(b.brand, b.model) ? `<a class="rak-link" href="${getRakutenUrl(b.brand, b.model)}" target="_blank" rel="noopener sponsored">🛒 楽天で見る</a>` : ''}
+            <a class="off-link" href="${b.url}" target="_blank" rel="noopener">公式サイト →</a>
+          </div>
         </div>`;
       cont.appendChild(card);
     });
