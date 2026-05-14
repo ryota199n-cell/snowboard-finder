@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="ja">
+<html lang="ja" style="background:#0F1522;">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,12 +16,12 @@
   --mint:#00F5A0;
   --purple:#B24BF3;
   --navy:#0D1B2A;
-  --bg:#0F1522;          /* ★ページ背景：ダークネイビー */
-  --card:#FFFFFF;        /* カード背景：白 */
-  --card-sub:#FFFEF0;    /* カード内サブ背景 */
+  --bg:#0F1522;          
+  --card:#FFFFFF;        
+  --card-sub:#FFFEF0;    
   --gray:#F0F0F0;
   --ink:#1A1A2E;
-  --track:#C8D0DE;       /* ★スライダートラック色 */
+  --track:#C8D0DE;       
   --bd:3px solid var(--ink);
   --sh:5px 5px 0 var(--ink);
   --shl:8px 8px 0 var(--ink);
@@ -30,15 +30,12 @@
 html{scroll-behavior:smooth}
 body{
 font-family:‘Nunito’,sans-serif;
-background:var(–bg);   /* ★暗い背景 */
+background:#0F1522;  
 color:var(–ink);
 min-height:100vh;
 overflow-x:hidden;
 }
 
-/* ─────────────────────────────────────
-HERO
-───────────────────────────────────── */
 .hero{
 position:relative;padding:52px 24px 52px;
 overflow:hidden;border-bottom:var(–bd);
@@ -82,14 +79,8 @@ letter-spacing:.1em;text-transform:uppercase;padding:4px 11px;border-radius:6px;
 .sf{position:absolute;font-size:20px;animation:sfall linear infinite;opacity:.3;pointer-events:none}
 @keyframes sfall{from{transform:translateY(-40px) rotate(0)}to{transform:translateY(110vh) rotate(360deg)}}
 
-/* ─────────────────────────────────────
-LAYOUT
-───────────────────────────────────── */
 .wrap{max-width:860px;margin:0 auto;padding:40px 20px 100px}
 
-/* ─────────────────────────────────────
-STEP CARDS（白カード）
-───────────────────────────────────── */
 .step-card{
 background:var(–card);border:var(–bd);border-radius:20px;
 box-shadow:var(–shl);padding:30px 26px;margin-bottom:18px;
@@ -114,9 +105,6 @@ font-family:‘Russo One’,sans-serif;font-size:clamp(18px,3.5vw,27px);
 line-height:1.1;margin-bottom:20px;
 }
 
-/* ─────────────────────────────────────
-FORM INPUTS
-───────────────────────────────────── */
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .fld{display:flex;flex-direction:column;gap:7px}
 .fld label{
@@ -135,9 +123,6 @@ box-shadow:4px 4px 0 var(–blue);border-color:var(–blue);
 }
 .fld select option{font-size:16px}
 
-/* ─────────────────────────────────────
-PILLS
-───────────────────────────────────── */
 .pgrid{display:flex;flex-wrap:wrap;gap:10px}
 .pbtn{
 font-family:‘Nunito’,sans-serif;font-size:14px;font-weight:800;
@@ -152,38 +137,31 @@ gap:2px;user-select:none;
 .pbtn.lv-sel{background:var(–coral);color:#fff;box-shadow:var(–sh);transform:translateY(-2px)}
 .psub{font-size:10px;font-weight:700;opacity:.6}
 
-/* ─────────────────────────────────────
-FLEX SLIDER ★完全修正
-Chrome/Safari → ::-webkit-slider-runnable-track
-Firefox       → ::-moz-range-track
-───────────────────────────────────── */
 .fxbig{
 text-align:center;margin-bottom:16px;
 font-family:‘Russo One’,sans-serif;font-size:60px;line-height:1;
 }
 .fxbig span{color:var(–coral)}
 
-/* ベース：appearanceをリセット */
 input[type=range]{
 -webkit-appearance:none;
 appearance:none;
 width:100%;
 height:16px;
-background:transparent;   /* ★backgroundをtransparentにしてtrack疑似要素で描画 */
+background:transparent;  
 border:none;
 outline:none;
 cursor:pointer;
 padding:0;
 }
 
-/* Chrome / Safari / Edge — トラック */
 input[type=range]::-webkit-slider-runnable-track{
 height:16px;
 background:var(–track);
 border:var(–bd);
 border-radius:100px;
 }
-/* Chrome / Safari / Edge — つまみ */
+
 input[type=range]::-webkit-slider-thumb{
 -webkit-appearance:none;
 width:34px;height:34px;
@@ -192,19 +170,18 @@ border:var(–bd);
 border-radius:50%;
 box-shadow:var(–sh);
 cursor:pointer;
-margin-top:-12px;          /* トラック中央に合わせる */
+margin-top:-12px;  
 transition:transform .15s;
 }
 input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15)}
 
-/* Firefox — トラック */
 input[type=range]::-moz-range-track{
 height:16px;
 background:var(–track);
 border:var(–bd);
 border-radius:100px;
 }
-/* Firefox — つまみ */
+
 input[type=range]::-moz-range-thumb{
 width:34px;height:34px;
 background:var(–yellow);
@@ -225,9 +202,6 @@ margin-top:10px;text-align:center;
 background:var(–card-sub);border-radius:8px;padding:8px 12px;
 }
 
-/* ─────────────────────────────────────
-CTA BUTTON
-───────────────────────────────────── */
 .cta-sec{text-align:center;padding:4px 0}
 .cta-btn{
 font-family:‘Russo One’,sans-serif;font-size:22px;letter-spacing:.05em;
@@ -247,32 +221,23 @@ transform:translateX(-100%);transition:transform .45s;
 .cta-btn:disabled{opacity:.4;cursor:not-allowed}
 .nmsg{font-size:13px;font-weight:700;color:var(–yellow);margin-top:12px}
 
-/* ─────────────────────────────────────
-LOADING ★暗背景対応
-───────────────────────────────────── */
 .ldwrap{text-align:center;padding:60px 20px;animation:fadeIn .4s ease}
 .ldspin{font-size:64px;display:inline-block;animation:spin 1s linear infinite;margin-bottom:16px}
 @keyframes spin{to{transform:rotate(360deg)}}
-.ldttl{font-family:‘Russo One’,sans-serif;font-size:22px;color:#fff}      /* ★白文字 */
-.ldsub{font-size:14px;font-weight:600;color:rgba(255,255,255,.55);margin-top:8px} /* ★白文字 */
+.ldttl{font-family:‘Russo One’,sans-serif;font-size:22px;color:#fff}  
+.ldsub{font-size:14px;font-weight:600;color:rgba(255,255,255,.55);margin-top:8px}
 
-/* ─────────────────────────────────────
-RESULTS HEADER ★暗背景対応
-───────────────────────────────────── */
 #results-section{animation:fadeIn .5s ease}
 .reshd{text-align:center;margin-bottom:32px}
 .reshd h2{
 font-family:‘Russo One’,sans-serif;
 font-size:clamp(28px,6vw,48px);text-transform:uppercase;line-height:1;
-color:#fff;                          /* ★白文字 */
+color:#fff;  
 }
 .reshd h2 em{font-style:normal;color:var(–coral)}
-.reshd p{font-size:14px;font-weight:600;color:rgba(255,255,255,.55);margin-top:8px} /* ★白文字 */
+.reshd p{font-size:14px;font-weight:600;color:rgba(255,255,255,.55);margin-top:8px}
 .board-cards{display:flex;flex-direction:column;gap:24px}
 
-/* ─────────────────────────────────────
-BOARD CARD
-───────────────────────────────────── */
 .bcard{
 background:var(–card);border:var(–bd);border-radius:20px;
 box-shadow:var(–shl);overflow:hidden;
@@ -281,7 +246,6 @@ animation:popIn .5s cubic-bezier(.34,1.56,.64,1) both;
 .bcard:nth-child(2){animation-delay:.1s}
 .bcard:nth-child(3){animation-delay:.2s}
 
-/* ヘッダー部：rank + info + board graphic */
 .bcard-head{
 padding:18px 20px;display:flex;
 align-items:stretch;gap:12px;
@@ -323,7 +287,6 @@ background:var(–card-sub);box-shadow:3px 3px 0 var(–ink);
 .sc-n{font-family:‘Russo One’,sans-serif;font-size:17px;line-height:1}
 .sc-l{font-size:8px;font-weight:900;opacity:.45;letter-spacing:.1em}
 
-/* 板グラフィック（右端・縦長） */
 .board-graphic{
 flex-shrink:0;width:58px;
 align-self:stretch;
@@ -338,7 +301,6 @@ box-shadow:3px 3px 0 rgba(0,0,0,.15);
 display:block;
 }
 
-/* 各セクション */
 .bc-tags{display:flex;flex-wrap:wrap;gap:6px;padding:11px 20px;border-bottom:var(–bd)}
 .btag-c{
 font-size:11px;font-weight:800;background:var(–navy);color:var(–yellow);
@@ -353,7 +315,7 @@ border-bottom:var(–bd);background:var(–card-sub);
 
 .bc-specs{
 display:grid;
-grid-template-columns:repeat(5,1fr);   /* 常に5列 */
+grid-template-columns:repeat(5,1fr);  
 border-bottom:var(–bd);
 }
 .sp{padding:11px 10px;border-right:var(–bd);text-align:center}
@@ -393,7 +355,6 @@ text-decoration:none;transition:all .15s cubic-bezier(.34,1.56,.64,1);white-spac
 }
 .off-link:hover{transform:translateY(-2px);box-shadow:var(–shl)}
 
-/* RETRY */
 .retry-wrap{text-align:center;margin-top:34px}
 .retry-btn{
 font-family:‘Russo One’,sans-serif;font-size:16px;
@@ -404,7 +365,6 @@ transition:all .15s cubic-bezier(.34,1.56,.64,1);
 }
 .retry-btn:hover{transform:translateY(-3px);box-shadow:var(–shl)}
 
-/* NO MATCH */
 .nomatch{
 text-align:center;padding:48px 24px;
 background:var(–card);border:var(–bd);border-radius:20px;box-shadow:var(–shl);
@@ -413,58 +373,45 @@ background:var(–card);border:var(–bd);border-radius:20px;box-shadow:var(–s
 .nomatch h3{font-family:‘Russo One’,sans-serif;font-size:22px;margin-bottom:10px}
 .nomatch p{font-size:14px;font-weight:600;color:rgba(0,0,0,.5);line-height:1.7}
 
-/* CONFETTI */
 .cf{position:fixed;animation:cff 3s ease-in forwards;pointer-events:none;z-index:9999;border-radius:2px}
 @keyframes cff{
 0%{transform:translateY(-20px) rotate(0);opacity:1}
 100%{transform:translateY(100vh) rotate(720deg);opacity:0}
 }
 
-/* FOOTER */
 .footer{
 text-align:center;padding:26px 20px;background:var(–navy);
 color:rgba(255,255,255,.38);font-size:12px;font-weight:600;border-top:var(–bd);
 }
 
-/* ANIMATIONS */
 @keyframes popIn{from{opacity:0;transform:scale(.8) translateY(10px)}to{opacity:1;transform:scale(1) translateY(0)}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 
-/* ═════════════════════════════════════
-📱 MOBILE — 600px以下
-═════════════════════════════════════ */
 @media(max-width:600px){
-/* Hero */
+
 .hero{padding:36px 16px 40px}
 h1.htl{font-size:clamp(38px,13vw,60px)}
 .hero-sub{font-size:13px}
 .hero-sub br{display:none}
 .hero-chip{font-size:11px;padding:5px 14px}
 
-/* Wrap */
 .wrap{padding:24px 14px 80px}
 
-/* Step cards */
 .step-card{padding:22px 16px}
 .step-card h2{font-size:18px}
 
-/* Form grid → 1列 */
 .frow{grid-template-columns:1fr}
 .fld input,.fld select{font-size:16px;padding:11px 13px}
 
-/* Pills */
 .pgrid{gap:8px}
 .pbtn{font-size:13px;padding:9px 16px}
 
-/* Slider */
 .fxbig{font-size:48px}
 input[type=range]::-webkit-slider-thumb{width:28px;height:28px;margin-top:-9px}
 input[type=range]::-moz-range-thumb{width:28px;height:28px}
 
-/* CTA */
 .cta-btn{font-size:18px;padding:18px 28px;width:100%;max-width:340px}
 
-/* Board card header */
 .bcard-head{padding:14px 14px;gap:8px;min-height:auto}
 .bcard-rank{width:40px;height:40px;min-width:40px;font-size:20px;border-radius:10px}
 .bc-name{font-size:16px}
@@ -473,40 +420,30 @@ input[type=range]::-moz-range-thumb{width:28px;height:28px}
 .score-ring{width:42px;height:42px}
 .sc-n{font-size:15px}
 
-/* Board graphic — スマホでは少し小さく */
 .board-graphic{width:48px}
 .board-graphic img{width:44px;max-height:150px}
 
-/* スタイルタグ */
 .btag-c{font-size:10px;padding:3px 9px}
 .bc-reason{font-size:13px;padding:12px 14px}
 
-/* Specs — スマホは2×3グリッドに変更 */
 .bc-specs{grid-template-columns:repeat(2,1fr)}
 .sp{padding:10px 10px}
-.sp:nth-child(2){border-right:none}  /* 2列目は右ボーダーなし */
+.sp:nth-child(2){border-right:none}  
 .sp:nth-child(4){border-right:none}
 .sp-v{font-size:15px}
 .sp-v.sm{font-size:11px}
 
-/* Season row */
 .season-row{padding:8px 14px}
 
-/* Footer */
 .bc-foot{flex-direction:column;align-items:flex-start;padding:12px 14px;gap:10px}
 .off-link{width:100%;justify-content:center;font-size:13px}
 .hls{padding:0}
 
-/* Results header */
 .reshd{margin-bottom:24px}
 
-/* Loading */
 .ldttl{font-size:18px}
 }
 
-/* ═════════════════════════════════════
-📱 SMALL — 380px以下
-═════════════════════════════════════ */
 @media(max-width:380px){
 h1.htl{font-size:36px}
 .pbtn{font-size:12px;padding:8px 13px}
@@ -517,7 +454,7 @@ h1.htl{font-size:36px}
 </style>
 
 </head>
-<body>
+<body style="background:#0F1522;color:#1A1A2E;">
 
 <!-- HERO -->
 
