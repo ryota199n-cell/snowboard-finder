@@ -488,9 +488,34 @@ input[type=range]::-moz-range-thumb{
   .board-graphic{width:40px}
   .board-graphic img{width:36px;max-height:130px}
 }
+
+/* ── NAVIGATION ── */
+.site-nav{background:#0D1B2A;border-bottom:3px solid #1A1A2E;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.nav-logo{font-family:'Russo One',sans-serif;font-size:20px;color:#FFE500;text-decoration:none;letter-spacing:.05em}
+.nav-logo span{color:#fff}
+.nav-links{display:flex;gap:6px;flex-wrap:wrap}
+.nav-links a{color:rgba(255,255,255,.65);font-size:12px;font-weight:700;text-decoration:none;padding:6px 12px;border-radius:100px;border:2px solid rgba(255,255,255,.15);transition:all .15s}
+.nav-links a:hover{color:#FFE500;border-color:#FFE500;background:rgba(255,229,0,.08)}
+/* ── FOOTER LINKS ── */
+.site-footer{text-align:center;padding:26px 20px;background:#0D1B2A;color:rgba(255,255,255,.38);font-size:12px;font-weight:600;border-top:3px solid #1A1A2E}
+.site-footer a{color:rgba(255,255,255,.5);text-decoration:none;margin:0 8px}
+.site-footer a:hover{color:#FFE500}
+@media(max-width:480px){
+  .site-nav{padding:12px 14px}
+  .nav-links a{font-size:11px;padding:5px 9px}
+}
 </style>
 </head>
 <body style="background:#0F1522;color:#1A1A2E;">
+<nav class="site-nav">
+  <a class="nav-logo" href="/"><span>BOARD</span>FINDER</a>
+  <div class="nav-links">
+    <a href="/about.html">ℹ️ 運営者情報</a>
+    <a href="/privacy.html">🔒 プライバシーポリシー</a>
+    <a href="/contact.html">✉️ お問い合わせ</a>
+  </div>
+</nav>
+
 
 <!-- HERO -->
 <section class="hero">
@@ -621,8 +646,11 @@ input[type=range]::-moz-range-thumb{
   </div>
 </div>
 
-<footer class="footer">
-  🏂 BOARD FINDER 2025-26/26-27 — 国産ブランド対応 | データは各ブランド公開情報をもとに作成
+<footer class="site-footer">
+  🏂 BOARD FINDER 2025-26/26-27 — 国産ブランド対応 |
+  <a href="/about.html">運営者情報</a>
+  <a href="/privacy.html">プライバシーポリシー</a>
+  <a href="/contact.html">お問い合わせ</a>
 </footer>
 
 <script>
