@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>スノーボード初心者の板選び完全ガイド【JSBAインストラクターが失敗しない選び方を解説】| BOARD FINDER</title>
+<meta name="description" content="スノーボード歴7年・JSBAインストラクターのリョータが初心者向けに板の選び方を徹底解説。長さ・フレックス・形状の見方から国産おすすめモデルまで、失敗しない1本が見つかります。">
+<meta name="keywords" content="スノーボード 初心者 板選び,スノーボード 板 選び方,スノーボード 初心者 おすすめ,スノーボード 長さ 選び方,スノーボード フレックス 初心者">
+<meta property="og:title" content="スノーボード初心者の板選び完全ガイド | BOARD FINDER">
+<meta property="og:description" content="JSBAインストラクターが失敗しない板選びを解説。長さ・フレックス・形状の選び方からおすすめモデルまで。">
+<meta property="og:type" content="article">
+<link rel="canonical" href="https://snowboard-finder.vercel.app/beginner-guide.html">
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&family=Nunito:wght@400;600;700;800;900&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+/* ページ全体デフォルトは暗色文字（白背景カードのため） */
+body{font-family:'Nunito',sans-serif;background:#0F1522;color:#1A1A2E;line-height:1.8;overflow-x:hidden}
+
+/* NAV */
+.nav{background:#0D1B2A;border-bottom:3px solid #1A1A2E;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;position:sticky;top:0;z-index:100}
+.nav-logo{font-family:'Russo One',sans-serif;font-size:20px;color:#FFE500;text-decoration:none}
+.nav-logo span{color:#fff}
+.nav-links{display:flex;gap:8px;flex-wrap:wrap}
+.nav-links a{color:rgba(255,255,255,.65);font-size:12px;font-weight:700;text-decoration:none;padding:5px 11px;border-radius:100px;border:2px solid rgba(255,255,255,.15);transition:all .15s}
+.nav-links a:hover{color:#FFE500;border-color:#FFE500}
+
+/* HERO — 暗背景なので白文字 */
+.hero{background:#0D1B2A;padding:52px 24px 48px;border-bottom:3px solid #1A1A2E;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(-45deg,transparent,transparent 20px,rgba(255,229,0,.03) 20px,rgba(255,229,0,.03) 40px)}
+.hero-inner{max-width:800px;margin:0 auto;position:relative;z-index:1}
+.art-chip{display:inline-flex;align-items:center;gap:8px;background:#FFE500;color:#1A1A2E;font-weight:900;font-size:11px;letter-spacing:.2em;text-transform:uppercase;padding:5px 16px;border-radius:100px;border:3px solid #1A1A2E;box-shadow:4px 4px 0 #1A1A2E;margin-bottom:20px}
+.hero h1{font-family:'Russo One',sans-serif;font-size:clamp(22px,4.5vw,38px);color:#fff;line-height:1.3;margin-bottom:16px}
+.hero h1 em{font-style:normal;color:#FFE500}
+.hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px}
+.meta-tag{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.75);font-size:12px;font-weight:700;padding:4px 12px;border-radius:100px}
+.hero-lead{font-size:15px;color:rgba(255,255,255,.7);line-height:1.85;max-width:660px}
+
+/* LAYOUT */
+.container{max-width:800px;margin:0 auto;padding:48px 24px 100px}
+
+/* ══════════════════════════════════════════════════════════
+   白背景カード — color:#1A1A2E を明示（最優先）
+   ══════════════════════════════════════════════════════════ */
+.author-card{background:#fff;border:3px solid #1A1A2E;border-radius:16px;box-shadow:6px 6px 0 #1A1A2E;padding:20px 22px;margin-bottom:36px;display:flex;align-items:center;gap:16px;color:#1A1A2E}
+.author-icon{width:60px;height:60px;min-width:60px;border-radius:14px;border:3px solid #1A1A2E;background:#0D1B2A;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:3px 3px 0 #1A1A2E}
+.author-name{font-family:'Russo One',sans-serif;font-size:16px;color:#1A1A2E;margin-bottom:3px}
+.author-bio{font-size:12px;color:rgba(0,0,0,.55);font-weight:600;line-height:1.5}
+.author-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.atag{font-size:10px;font-weight:800;padding:2px 9px;border-radius:100px;border:2px solid #1A1A2E;background:#FFE500;color:#1A1A2E}
+
+.toc{background:#fff;border:3px solid #1A1A2E;border-radius:16px;box-shadow:6px 6px 0 #1A1A2E;padding:24px 26px;margin-bottom:40px;color:#1A1A2E}
+.toc-title{font-family:'Russo One',sans-serif;font-size:16px;color:#1A1A2E;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.toc ol{padding-left:20px}
+.toc li{font-size:14px;font-weight:700;color:#1A1A2E;margin-bottom:8px;line-height:1.5}
+.toc a{color:#FF4757;text-decoration:none;border-bottom:2px solid transparent;transition:border-color .15s}
+.toc a:hover{border-color:#FF4757}
+
+/* ══════════════════════════════════════════════════════════
+   SECTIONの暗背景テキスト
+   ※ 白背景カード内には上書きルールで対応
+   ══════════════════════════════════════════════════════════ */
+.sec{margin-bottom:52px}
+.sec h2{font-family:'Russo One',sans-serif;font-size:clamp(20px,3.5vw,28px);color:#fff;margin-bottom:20px;padding-bottom:12px;border-bottom:3px solid #FFE500;display:flex;align-items:center;gap:10px}
+/* h3は暗背景前提の白文字。白背景コンテナ内は後述の上書きで対応 */
+.sec h3{font-family:'Russo One',sans-serif;font-size:clamp(16px,2.5vw,20px);color:#fff;margin:24px 0 12px;padding-left:12px;border-left:4px solid #FF4757}
+/* sec内の直接p/liは暗背景用 */
+.sec p{font-size:15px;color:rgba(255,255,255,.78);line-height:1.9;margin-bottom:14px}
+.sec ul,.sec ol{padding-left:22px;margin-bottom:14px}
+.sec li{font-size:15px;color:rgba(255,255,255,.78);line-height:1.85;margin-bottom:6px}
+.sec strong{color:#FFE500;font-weight:900}
+
+/* EXPERIENCE BOX — 暗背景 */
+.exp-box{background:#0D1B2A;border:3px solid #FFE500;border-radius:14px;padding:22px 24px;margin:24px 0;position:relative}
+.exp-box::before{content:'🏂 リョータの体験談';position:absolute;top:-14px;left:16px;background:#FFE500;color:#1A1A2E;font-size:11px;font-weight:900;padding:3px 12px;border-radius:100px;border:2px solid #1A1A2E;letter-spacing:.05em}
+.exp-box p{color:rgba(255,255,255,.82) !important;font-size:14px;line-height:1.9;margin:0}
+.exp-box strong{color:#FFE500 !important}
+
+/* POINT BOX — 暗背景 */
+.point-box{background:rgba(255,71,87,.12);border:3px solid #FF4757;border-radius:14px;padding:20px 22px;margin:20px 0}
+.point-box .pt{font-family:'Russo One',sans-serif;font-size:13px;color:#FF4757;letter-spacing:.1em;margin-bottom:8px}
+.point-box p{color:rgba(255,255,255,.82) !important;font-size:14px;line-height:1.85;margin:0}
+.point-box strong{color:#FFE500 !important}
+
+/* INFO BOX — 暗背景 */
+.info-box{background:rgba(0,210,255,.1);border:3px solid #00D2FF;border-radius:14px;padding:20px 22px;margin:20px 0}
+.info-box .it{font-family:'Russo One',sans-serif;font-size:12px;color:#00D2FF;letter-spacing:.1em;margin-bottom:8px}
+.info-box p{color:rgba(255,255,255,.82) !important;font-size:14px;line-height:1.85;margin:0}
+.info-box li{color:rgba(255,255,255,.82) !important;font-size:14px;line-height:1.85;margin-bottom:6px}
+.info-box ul{padding-left:18px;margin-top:8px}
+.info-box strong{color:#FFE500 !important}
+
+/* TABLE */
+.tbl-wrap{overflow-x:auto;margin:20px 0;border-radius:12px;border:3px solid #1A1A2E}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:14px;color:#1A1A2E}
+thead{background:#0D1B2A}
+thead th{color:#FFE500;font-family:'Russo One',sans-serif;font-size:12px;letter-spacing:.1em;padding:12px 14px;text-align:left;white-space:nowrap}
+tbody tr:nth-child(even){background:#FFFEF0}
+tbody tr:hover{background:#FFF8CC}
+td{padding:12px 14px;color:#1A1A2E;font-weight:600;border-bottom:2px solid #F0F0F0;vertical-align:top}
+td:first-child{font-weight:900}
+
+/* PROFILE BAR */
+.profile-bar{background:#fff;border:3px solid #1A1A2E;border-radius:12px;padding:14px 18px;display:flex;align-items:center;gap:12px;margin:6px 0;box-shadow:3px 3px 0 #1A1A2E;color:#1A1A2E}
+.pb-icon{font-size:22px;flex-shrink:0}
+.pb-label{font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:rgba(0,0,0,.38);margin-bottom:2px}
+.pb-val{font-family:'Russo One',sans-serif;font-size:16px;color:#1A1A2E}
+
+/* FLEX METER */
+.flex-meter{background:#F0F0F0;border:3px solid #1A1A2E;border-radius:100px;height:28px;margin:10px 0;position:relative;overflow:hidden}
+.flex-fill{height:100%;border-radius:100px;display:flex;align-items:center;padding-left:12px;font-family:'Russo One',sans-serif;font-size:12px;letter-spacing:.05em;color:#fff}
+
+/* ══════════════════════════════════════════════════════════
+   BOARD CARDS — 白背景なので全て暗色テキスト
+   ══════════════════════════════════════════════════════════ */
+.rec-cards{display:flex;flex-direction:column;gap:18px;margin-top:20px}
+.rec-card{background:#fff;border:3px solid #1A1A2E;border-radius:16px;box-shadow:6px 6px 0 #1A1A2E;overflow:hidden;color:#1A1A2E}
+.rec-card h2,.rec-card h3{color:#1A1A2E}
+.rec-card p{color:#333;font-size:14px;line-height:1.8;margin-bottom:12px}
+.rec-card li{color:#333}
+.rec-card strong{color:#1A1A2E}
+.rec-head{padding:16px 20px;display:flex;align-items:flex-start;gap:12px;border-bottom:3px solid #1A1A2E;color:#1A1A2E}
+.rec-num{width:44px;height:44px;min-width:44px;border-radius:12px;border:3px solid #1A1A2E;background:#FFE500;font-family:'Russo One',sans-serif;font-size:22px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#1A1A2E}
+.rec-num.n2{background:#e0e0e0;color:#1A1A2E}
+.rec-num.n3{background:#ffd6a0;color:#1A1A2E}
+.rec-num.n4{background:#00F5A0;color:#1A1A2E}
+.rec-num.n5{background:#B24BF3;color:#fff}
+.rec-brand{font-size:10px;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:rgba(0,0,0,.4);margin-bottom:2px}
+.rec-name{font-family:'Russo One',sans-serif;font-size:20px;color:#1A1A2E;line-height:1}
+.rec-for{font-size:12px;font-weight:700;color:rgba(0,0,0,.55);margin-top:3px}
+.rec-body{padding:14px 20px;color:#1A1A2E}
+.rec-specs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.rsp{font-size:11px;font-weight:800;padding:3px 10px;border-radius:100px;border:2px solid #1A1A2E;background:#FFFEF0;color:#1A1A2E}
+.rec-btns{display:flex;flex-wrap:wrap;gap:8px}
+.btn-rak{display:inline-flex;align-items:center;gap:5px;font-family:'Russo One',sans-serif;font-size:12px;background:#BF0000;color:#FFE500;padding:9px 16px;border-radius:100px;border:3px solid #1A1A2E;box-shadow:4px 4px 0 #1A1A2E;text-decoration:none;transition:all .15s cubic-bezier(.34,1.56,.64,1)}
+.btn-rak:hover{transform:translateY(-2px);box-shadow:6px 6px 0 #1A1A2E}
+.btn-off{display:inline-flex;align-items:center;gap:5px;font-family:'Russo One',sans-serif;font-size:12px;background:#0D1B2A;color:#FFE500;padding:9px 16px;border-radius:100px;border:3px solid #1A1A2E;box-shadow:4px 4px 0 #1A1A2E;text-decoration:none;transition:all .15s cubic-bezier(.34,1.56,.64,1)}
+.btn-off:hover{transform:translateY(-2px);box-shadow:6px 6px 0 #1A1A2E}
+
+/* CTA TOOL — 暗背景 */
+.cta-tool{
+  background:linear-gradient(135deg,#FFE500 0%,#FFAD00 100%);
+  border:3px solid #1A1A2E;
+  border-radius:20px;
+  padding:36px 28px;
+  text-align:center;
+  margin:40px 0;
+  box-shadow:8px 8px 0 #1A1A2E;
+  position:relative;
+  overflow:hidden;
+}
+.cta-tool::before{
+  content:'';
+  position:absolute;inset:0;
+  background-image:repeating-linear-gradient(-45deg,transparent,transparent 12px,rgba(255,255,255,.12) 12px,rgba(255,255,255,.12) 24px);
+}
+.cta-tool::after{
+  content:'🏂';
+  position:absolute;
+  right:-10px;bottom:-16px;
+  font-size:90px;
+  opacity:.12;
+  pointer-events:none;
+}
+.cta-tool h3{
+  font-family:'Russo One',sans-serif;
+  font-size:clamp(18px,3.5vw,26px);
+  color:#1A1A2E;
+  margin-bottom:10px;
+  position:relative;z-index:1;
+}
+.cta-tool p{
+  font-size:14px;
+  color:rgba(0,0,0,.65);
+  font-weight:700;
+  margin-bottom:22px;
+  line-height:1.7;
+  position:relative;z-index:1;
+}
+.cta-tool a{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'Russo One',sans-serif;font-size:18px;
+  background:#FF4757;color:#fff;
+  padding:16px 40px;border-radius:100px;
+  border:3px solid #1A1A2E;
+  box-shadow:5px 5px 0 #1A1A2E;
+  text-decoration:none;
+  transition:all .15s cubic-bezier(.34,1.56,.64,1);
+  position:relative;z-index:1;
+}
+.cta-tool a:hover{transform:translateY(-4px) scale(1.03);box-shadow:8px 8px 0 #1A1A2E}
+
+/* ══════════════════════════════════════════════════════════
+   FAQ — 白背景なので全て暗色テキスト
+   ══════════════════════════════════════════════════════════ */
+.faq-item{background:#fff;border:3px solid #1A1A2E;border-radius:14px;box-shadow:5px 5px 0 #1A1A2E;margin-bottom:14px;overflow:hidden;color:#1A1A2E}
+.faq-q{padding:16px 20px;font-size:15px;font-weight:900;color:#1A1A2E;display:flex;align-items:flex-start;gap:10px}
+.faq-q::before{content:'Q';display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;min-width:26px;background:#FF4757;color:#fff;font-size:13px;font-weight:900;border-radius:8px}
+.faq-a{padding:0 20px 16px 56px;font-size:14px;color:#333;line-height:1.8}
+.faq-a strong{color:#1A1A2E}
+
+/* ══════════════════════════════════════════════════════════
+   SUMMARY — 白背景なので全て暗色テキスト
+   ══════════════════════════════════════════════════════════ */
+.summary{background:#fff;border:3px solid #1A1A2E;border-radius:16px;box-shadow:6px 6px 0 #1A1A2E;padding:28px;color:#1A1A2E}
+.summary h3{font-family:'Russo One',sans-serif;font-size:20px;color:#1A1A2E;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.summary ul{padding-left:0;list-style:none}
+.summary li{font-size:14px;font-weight:700;color:#1A1A2E;margin-bottom:10px;padding-left:28px;position:relative;line-height:1.6}
+.summary li::before{content:'✅';position:absolute;left:0}
+.summary strong{color:#1A1A2E}
+
+/* FOOTER */
+.footer{text-align:center;padding:26px 20px;background:#0D1B2A;color:rgba(255,255,255,.38);font-size:12px;font-weight:600;border-top:3px solid #1A1A2E}
+.footer a{color:rgba(255,255,255,.5);text-decoration:none;margin:0 8px}
+.footer a:hover{color:#FFE500}
+
+/* MOBILE */
+@media(max-width:600px){
+  .hero h1{font-size:20px}
+  .container{padding:32px 16px 80px}
+  .rec-btns{flex-direction:column}
+  .btn-rak,.btn-off{justify-content:center;width:100%}
+  .author-card{flex-direction:column;align-items:flex-start}
+  .cta-tool{padding:24px 18px}
+  .cta-tool a{padding:14px 28px;font-size:16px}
+  .faq-a{padding-left:20px}
+}
+</style>
+<!-- JSON-LD 構造化データ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "スノーボード初心者の板選び完全ガイド【JSBAインストラクターが失敗しない選び方を解説】",
+  "description": "スノーボード歴7年・JSBAインストラクターのリョータが初心者向けに板の選び方を徹底解説。長さ・フレックス・形状の見方からおすすめモデルまで。",
+  "author": {
+    "@type": "Person",
+    "name": "リョータ"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BOARD FINDER"
+  },
+  "datePublished": "2026-05-15",
+  "dateModified": "2026-05-15",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://snowboard-finder.vercel.app/beginner-guide.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "スノーボードの板の長さはどう選ぶ？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "基本は身長から15〜20cm短い長さが目安です。身長170cmなら150〜155cm、175cmなら155〜160cmが適切です。体重が重い方は少し長め、トリック重視なら少し短めを選ぶとよいでしょう。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "初心者はフレックスを何くらいにすればいい？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "初心者はソフト〜ミディアム（フレックス3〜5）がおすすめです。板が扱いやすく、ターンの感覚をつかみやすくなります。上達してから自分のスタイルに合わせて硬さを変えましょう。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "スノーボードのレンタルと購入どっちがお得？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1シーズンに5回以上滑る方は購入の方がお得です。レンタルは1回あたり約5,000円かかるため、5回で25,000円。エントリーモデルの板は3〜5万円から購入できるため、コストパフォーマンスは購入の方が高くなります。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "グラトリがしたい初心者はどんな板を選べばいい？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "グラトリを目指す初心者には、ソフトフレックス（3〜5）のツイン形状でダブルキャンバーやロッカープロファイルの板がおすすめです。FNTCのTNT Cシリーズは楽天ランキングでも常連の定番グラトリ入門ボードです。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ウィズ（ウエスト幅）の選び方は？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ウエスト幅の目安はブーツサイズ−1cmです。例えば28cmのブーツなら27cm前後のウエスト幅が理想的。足が大きい方（27cm以上）は通常の板だとドラグ（エッジを立てた時につま先が雪に刺さる）が起きるため、ワイドモデルを選ぶことをおすすめします。"
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-logo" href="/"><span>BOARD</span>FINDER</a>
+  <div class="nav-links">
+    <a href="/">🏂 板を探す</a>
+    <a href="/about.html">運営者情報</a>
+    <a href="/contact.html">お問い合わせ</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="art-chip">📖 初心者ガイド</div>
+    <h1>スノーボード初心者の板選び<em>完全ガイド</em><br>【JSBAインストラクターが失敗しない選び方を解説】</h1>
+    <div class="hero-meta">
+      <span class="meta-tag">✍️ リョータ（JSBAインストラクター）</span>
+      <span class="meta-tag">📅 2026年5月更新</span>
+      <span class="meta-tag">⏱️ 読了約8分</span>
+      <span class="meta-tag">🏂 スノーボード歴7年</span>
+    </div>
+    <p class="hero-lead">「種類が多すぎて何を選べばいいかわからない」「失敗したくない」…そんな初心者の悩みを、JSBAインストラクター資格を持つリョータが実体験を交えながら徹底解説します。</p>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- AUTHOR -->
+  <div class="author-card">
+    <div class="author-icon">🏂</div>
+    <div>
+      <div class="author-name">リョータ</div>
+      <div class="author-bio">会社員をきっかけにスノーボードを始め7年。奥美濃→ウィスラー→ニセコ→シャモニーと国内外で滑り続けるインストラクター。</div>
+      <div class="author-tags">
+        <span class="atag">JSBA 1級</span>
+        <span class="atag">JSBAインストラクター</span>
+        <span class="atag">滑走歴7年</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOC -->
+  <div class="toc">
+    <div class="toc-title">📋 この記事の目次</div>
+    <ol>
+      <li><a href="#intro">板選びで失敗する人の3つのパターン</a></li>
+      <li><a href="#length">まず決める「板の長さ」の正しい選び方</a></li>
+      <li><a href="#flex">フレックス（硬さ）は初心者ほどソフトを選べ</a></li>
+      <li><a href="#shape">板の形状（プロファイル）を理解しよう</a></li>
+      <li><a href="#silhouette">シェイプ（形）の違い</a></li>
+      <li><a href="#width">見落としがちな「ウエスト幅」の重要性</a></li>
+      <li><a href="#budget">予算別おすすめの考え方</a></li>
+      <li><a href="#recommend">初心者におすすめの板5選【2025-26シーズン】</a></li>
+      <li><a href="#set">セット購入 vs 単品の考え方</a></li>
+      <li><a href="#faq">よくある質問（FAQ）</a></li>
+      <li><a href="#summary">まとめ</a></li>
+    </ol>
+  </div>
+
+
+  <!-- ① 失敗パターン -->
+  <div class="sec" id="intro">
+    <h2>❌ 板選びで失敗する人の3つのパターン</h2>
+    <p>スノーボードを始めてまず直面するのが「板選び」です。種類が多すぎて何を選べばいいか全くわからない、というのは誰もが通る道。実際、私自身も初めて板を買いに行くとき、完全に手探り状態でした。</p>
+    <p>インストラクターとして多くの初心者を見てきた経験から、板選びで後悔するパターンをまとめました。</p>
+
+    <h3>パターン①：長さを間違える</h3>
+    <p>「長い方が安定するだろう」と体格に合わない長い板を選ぶケースが多いです。長すぎる板はターン時の操作が難しくなり、上達の妨げになります。</p>
+
+    <h3>パターン②：フレックスが硬すぎる板を選ぶ</h3>
+    <p>上級者モデルや「カッコいい板」を買ってしまうパターンです。硬い板はエッジングが強く、体重のかけ方が不十分な初心者には扱いにくいため、上達に時間がかかります。</p>
+
+    <h3>パターン③：デザインだけで選んで後悔する</h3>
+    <p>デザインで選ぶこと自体は悪くありませんが、自分の体格やスタイルに全く合わないものを選ぶと問題が起きます。最低限の基準を満たした中からデザインを選ぶのが正解です。</p>
+
+    <div class="exp-box">
+      <p>私が最初に板を買いに行ったとき、近所に唯一あったスノーボードプロショップに足を運びました。身長178cm・体重78kgを伝えたところ、店員さんから「初心者は取り回しのしやすい、身長から約15〜20cm短い板がいい」とアドバイスをもらいました。<br><br>そのあたりの長さのオールラウンドボードの中から、<strong>デザインが気に入ったものを選ぶことをすすめてもらい、158cmを購入。</strong>この選び方は今思っても正解でした。</p>
+    </div>
+
+    <div class="point-box">
+      <div class="pt">🎯 POINT</div>
+      <p>最初の板選びで大切なのは「極端に長すぎず短すぎない長さ」「ソフト〜ミディアムのフレックス」「オールラウンドな形状」の3つ。この基準を満たした中で好きなデザインを選ぶのが失敗しない黄金ルールです。</p>
+    </div>
+  </div>
+
+
+  <!-- ② 長さ -->
+  <div class="sec" id="length">
+    <h2>📏 まず決める「板の長さ」の正しい選び方</h2>
+    <p>板選びで最初に確認すべきは「長さ」です。長すぎても短すぎても上達の妨げになります。</p>
+
+    <h3>基本の計算式</h3>
+    <div class="info-box">
+      <div class="it">📐 長さの基本式</div>
+      <p><strong>適切な長さ ＝ 自分の身長 − 15〜20cm</strong><br><br>
+      板を垂直に立てたとき、先端が自分の<strong>アゴから鼻の高さ</strong>に来るくらいが目安です。</p>
+    </div>
+
+    <h3>身長・体重別の早見表</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>身長</th>
+            <th>体重〜60kg</th>
+            <th>体重60〜75kg</th>
+            <th>体重75kg〜</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>155cm</td><td>135〜140cm</td><td>138〜143cm</td><td>140〜145cm</td></tr>
+          <tr><td>160cm</td><td>140〜145cm</td><td>143〜148cm</td><td>145〜150cm</td></tr>
+          <tr><td>165cm</td><td>145〜150cm</td><td>148〜153cm</td><td>150〜155cm</td></tr>
+          <tr><td>170cm</td><td>150〜155cm</td><td>152〜156cm</td><td>155〜158cm</td></tr>
+          <tr><td>175cm</td><td>154〜158cm</td><td>155〜160cm</td><td>158〜162cm</td></tr>
+          <tr><td>180cm</td><td>158〜162cm</td><td>160〜164cm</td><td>162〜166cm</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="info-box">
+      <div class="it">💡 長さの微調整ポイント</div>
+      <ul>
+        <li><strong>グラトリ・パーク重視</strong>なら表より2〜3cm短め（小回りが効きやすい）</li>
+        <li><strong>カービング・スピード重視</strong>なら2〜3cm長め（高速安定性が上がる）</li>
+        <li><strong>初心者・オールラウンド</strong>なら表の中央値がベスト</li>
+      </ul>
+    </div>
+
+    <div class="exp-box">
+      <p>私（身長178cm・体重78kg）は最初に158cmを選びました。今思っても適切な長さでした。ターンの感覚がつかみやすく、2〜3シーズン不満なく使えました。初心者のうちは「少し短め」くらいが扱いやすくていいと思います。</p>
+    </div>
+  </div>
+
+
+  <!-- ③ フレックス -->
+  <div class="sec" id="flex">
+    <h2>💪 フレックス（硬さ）は初心者ほどソフトを選べ</h2>
+    <p>フレックスとは板の「しなりやすさ」のことです。一般的に1〜10のスケールで表され、数字が小さいほど柔らかく扱いやすくなります。</p>
+
+    <h3>フレックス別の特徴</h3>
+    <div style="margin:16px 0">
+      <div style="margin-bottom:10px">
+        <div style="font-size:12px;font-weight:900;color:rgba(255,255,255,.5);margin-bottom:4px">フレックス 1〜3（ソフト）</div>
+        <div class="flex-meter"><div class="flex-fill" style="width:30%;background:linear-gradient(90deg,#00F5A0,#00D2FF)">超扱いやすい</div></div>
+        <div style="font-size:12px;color:rgba(255,255,255,.6)">グラトリ・パーク入門・初心者全般に最適</div>
+      </div>
+      <div style="margin-bottom:10px">
+        <div style="font-size:12px;font-weight:900;color:rgba(255,255,255,.5);margin-bottom:4px">フレックス 4〜6（ミディアム）</div>
+        <div class="flex-meter"><div class="flex-fill" style="width:60%;background:linear-gradient(90deg,#FFE500,#FF9500)">バランス型</div></div>
+        <div style="font-size:12px;color:rgba(255,255,255,.6)">初心者〜中級者・オールラウンドに最適</div>
+      </div>
+      <div style="margin-bottom:10px">
+        <div style="font-size:12px;font-weight:900;color:rgba(255,255,255,.5);margin-bottom:4px">フレックス 7〜10（ハード）</div>
+        <div class="flex-meter"><div class="flex-fill" style="width:90%;background:linear-gradient(90deg,#FF4757,#B24BF3)">上級者向け</div></div>
+        <div style="font-size:12px;color:rgba(255,255,255,.6)">カービング・フリーライド・高速滑走向け</div>
+      </div>
+    </div>
+
+    <div class="point-box">
+      <div class="pt">🎯 初心者へのアドバイス</div>
+      <p><strong>フレックス3〜5のソフト〜ミディアムが初心者に最適です。</strong>板が柔らかいほどしなりやすく、ターン時に板が反応しやすいためコントロールしやすくなります。「かっこいいから」という理由でハードな板を選ぶのは、上達の遠回りです。</p>
+    </div>
+
+    <div class="exp-box">
+      <p>私が最初に購入した板はソフト〜ミディアム（フレックス4〜5程度）でした。2〜3シーズンはこれで全く問題なく、ターンからある程度のカービングまでこなせました。上達してから「もっとハードな板が欲しい」と思えるようになるのが自然な流れです。</p>
+    </div>
+  </div>
+
+
+  <!-- ④ プロファイル -->
+  <div class="sec" id="shape">
+    <h2>🔍 板の形状（プロファイル）を理解しよう</h2>
+    <p>板を横から見たときの反り具合（プロファイル）によって、乗り心地や向いているスタイルが変わります。主な4種類を解説します。</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>プロファイル</th><th>特徴</th><th>おすすめの人</th><th>難易度</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>キャンバー</td>
+            <td>中央が浮いている。エッジグリップが強く高速安定性◎</td>
+            <td>カービング・中上級者</td>
+            <td>やや難しい</td>
+          </tr>
+          <tr>
+            <td>ロッカー</td>
+            <td>逆反り。ターンの入りがスムーズで逆エッジになりにくい</td>
+            <td>初心者・グラトリ・パウダー</td>
+            <td>簡単</td>
+          </tr>
+          <tr>
+            <td>ハイブリッドキャンバー</td>
+            <td>キャンバーとロッカーの中間。バランス型</td>
+            <td>オールラウンド・初〜中級者</td>
+            <td>普通</td>
+          </tr>
+          <tr>
+            <td>ダブルキャンバー</td>
+            <td>2つのキャンバー山。グラトリ特化でしなりが独特</td>
+            <td>グラトリ志向の初〜中級者</td>
+            <td>やや特殊</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="info-box">
+      <div class="it">💡 初心者へのおすすめ</div>
+      <p>初心者には<strong>ハイブリッドキャンバー</strong>か<strong>ロッカー</strong>がおすすめです。<br>
+      ・グラトリに興味があるなら <strong>ダブルキャンバー</strong> も選択肢<br>
+      ・とにかく安定してターンしたいなら <strong>ハイブリッドキャンバー</strong><br>
+      ・逆エッジが怖い・パウダーを滑りたいなら <strong>ロッカー</strong></p>
+    </div>
+  </div>
+
+
+  <!-- ⑤ シェイプ -->
+  <div class="sec" id="silhouette">
+    <h2>🔺 シェイプ（形）の違い</h2>
+    <p>板を真上から見たときの形（シェイプ）も重要なポイントです。</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>シェイプ</th><th>特徴</th><th>向いているスタイル</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>ツインチップ</td>
+            <td>前後対称。どちらの向きでも滑りやすい</td>
+            <td>グラトリ・パーク・フリースタイル</td>
+          </tr>
+          <tr>
+            <td>ディレクショナルツイン</td>
+            <td>見た目はほぼ対称だが前方向きの設計。安定感あり</td>
+            <td>オールマウンテン・初心者全般</td>
+          </tr>
+          <tr>
+            <td>ディレクショナル</td>
+            <td>ノーズが長くテールが短い。前進方向特化</td>
+            <td>カービング・パウダー・フリーライド</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="point-box">
+      <div class="pt">🎯 初心者へのアドバイス</div>
+      <p>初心者には<strong>ディレクショナルツイン</strong>がベストです。オールラウンドに使えて安定感があり、上達してもグラトリやカービングに対応できます。</p>
+    </div>
+  </div>
+
+
+  <!-- ⑥ ウエスト幅 -->
+  <div class="sec" id="width">
+    <h2>⚠️ 見落としがちな「ウエスト幅」の重要性</h2>
+    <p>板選びで見落とされがちなのが<strong>ウエスト幅</strong>です。これを間違えると、せっかく上達しても板の性能を引き出せなくなります。</p>
+
+    <div class="info-box">
+      <div class="it">📐 ウエスト幅の目安</div>
+      <p><strong>ウエスト幅（mm） ＝ ブーツサイズ（cm）× 10 − 10mm 前後</strong><br><br>
+      例：ブーツ27cm → ウエスト幅 260mm前後が理想<br>
+      例：ブーツ28cm → ウエスト幅 270mm前後（ワイドモデル推奨）</p>
+    </div>
+
+    <div class="exp-box">
+      <p>私の最初の板選びで唯一「失敗した」と感じたのがこのウエスト幅の問題でした。<br><br>
+      2シーズン目後半にカービングを本格的に練習し始めたとき、<strong>自分の足（28cm）に対して板のウエスト幅が細かった</strong>ため、板を立てた時につま先が雪面に刺さる「ドラグ」が発生していることに気づきました。<br><br>
+      その後すぐにウエストの太い<strong>ワイドカービングボード</strong>に乗り換えたところ、カービングのレベルが一気に上がりました。足のサイズが大きい方（27cm以上）は、最初からウエスト幅をしっかり確認することをおすすめします。</p>
+    </div>
+
+    <div class="point-box">
+      <div class="pt">⚠️ 要注意</div>
+      <p>ブーツサイズが<strong>27cm以上</strong>の方は、通常モデルだとドラグが起きやすいです。<strong>ワイドモデル</strong>（ウエスト幅260mm以上）を選ぶことを強くおすすめします。</p>
+    </div>
+  </div>
+
+
+  <!-- ⑦ 予算 -->
+  <div class="sec" id="budget">
+    <h2>💴 予算別おすすめの考え方</h2>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>予算（板のみ）</th><th>目安</th><th>特徴</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>〜¥40,000</td>
+            <td>エントリーモデル</td>
+            <td>最低限の機能あり。コスパ重視ならOKだが素材・耐久性に差あり</td>
+          </tr>
+          <tr>
+            <td>¥40,000〜¥70,000</td>
+            <td>ミドルレンジ</td>
+            <td>初心者が選ぶべき価格帯。品質・性能バランスが最もよい</td>
+          </tr>
+          <tr>
+            <td>¥70,000〜¥100,000</td>
+            <td>ハイエンド</td>
+            <td>上達後も使えるモデル。最初から長く使いたい方向け</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="info-box">
+      <div class="it">💡 予算配分のポイント</div>
+      <p>板だけでなくブーツとビンディングも必要です。おすすめの予算配分は以下の通りです。</p>
+      <ul>
+        <li><strong>板</strong>：予算の 40〜50%</li>
+        <li><strong>ビンディング</strong>：予算の 25〜30%</li>
+        <li><strong>ブーツ</strong>：予算の 25〜30%（最も妥協しないこと）</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <!-- TOOL CTA -->
+  <div class="cta-tool">
+    <h3>🎯 自分にピッタリの板、<br>60秒で見つけませんか？</h3>
+    <p>身長・体重・レベル・スタイルを入力するだけ！<br>AIが最適な板を3本＋推奨レングスまで自動計算。無料・登録不要。</p>
+    <a href="/">🏂 今すぐ無料で板を探す →</a>
+  </div>
+
+
+  <!-- ⑧ おすすめ5選 -->
+  <div class="sec" id="recommend">
+    <h2>🏆 初心者におすすめの板5選【2025-26シーズン】</h2>
+    <p>JSBAインストラクターの視点で、初心者が失敗しにくいモデルを厳選しました。楽天市場で購入できるリンクも掲載しています。</p>
+
+    <div class="rec-cards">
+
+      <!-- 1 FNTC TNT C -->
+      <div class="rec-card">
+        <div class="rec-head">
+          <div class="rec-num">1</div>
+          <div>
+            <div class="rec-brand">FNTC</div>
+            <div class="rec-name">TNT C</div>
+            <div class="rec-for">👉 グラトリに興味がある初心者に</div>
+          </div>
+        </div>
+        <div class="rec-body">
+          <div class="rec-specs">
+            <span class="rsp">フレックス：4</span>
+            <span class="rsp">ツイン形状</span>
+            <span class="rsp">ポップキャンバー</span>
+            <span class="rsp">¥32,000〜46,000</span>
+          </div>
+          <p>楽天スノーボード板ランキングで常連の国産グラトリ入門ボード。ポップキャンバープロファイルがターン時のグリップ力を確保しながら、プレスやスピンもしやすい絶妙なバランスを実現。「とりあえずこれ買っておけば間違いない」と言えるコスパ最強モデルです。</p>
+          <div class="rec-btns">
+            <a class="btn-rak" href="https://hb.afl.rakuten.co.jp/ichiba/53cae4d8.51adfa10.53cae4d9.7e691722/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Foutdoor-zousan%2Ffntc-tnt-c%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="noopener sponsored">🛒 楽天で見る</a>
+            <a class="btn-off" href="https://www.fntc.jp" target="_blank" rel="noopener">公式サイト →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 Burton Hometown Hero -->
+      <div class="rec-card">
+        <div class="rec-head">
+          <div class="rec-num n2">2</div>
+          <div>
+            <div class="rec-brand">Burton</div>
+            <div class="rec-name">Hometown Hero</div>
+            <div class="rec-for">👉 まずターンをしっかり覚えたい初心者に</div>
+          </div>
+        </div>
+        <div class="rec-body">
+          <div class="rec-specs">
+            <span class="rsp">フレックス：3</span>
+            <span class="rsp">ディレクショナルツイン</span>
+            <span class="rsp">フラットトップロッカー</span>
+            <span class="rsp">¥52,000〜63,000</span>
+          </div>
+          <p>バートンが初心者向けに設計したエントリーモデル。フラットトップロッカーが逆エッジを防ぎ、ソフトフレックスがターンのコントロールを覚えやすくします。世界トップシェアのバートンブランドの安心感も◎。初めての1本として文句なしのモデルです。</p>
+          <div class="rec-btns">
+            <a class="btn-rak" href="https://hb.afl.rakuten.co.jp/ichiba/53cbb646.8ee09b4f.53cbb647.a98d3fe2/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffleaboardshop%2F25bt01m222451%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="noopener sponsored">🛒 楽天で見る</a>
+            <a class="btn-off" href="https://www.burton.com/jp/ja" target="_blank" rel="noopener">公式サイト →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 RICE28 RT8 -->
+      <div class="rec-card">
+        <div class="rec-head">
+          <div class="rec-num n3">3</div>
+          <div>
+            <div class="rec-brand">RICE28</div>
+            <div class="rec-name">RT8</div>
+            <div class="rec-for">👉 国産品質でコスパ重視の初心者に</div>
+          </div>
+        </div>
+        <div class="rec-body">
+          <div class="rec-specs">
+            <span class="rsp">フレックス：4</span>
+            <span class="rsp">ツイン形状</span>
+            <span class="rsp">ハイブリッドキャンバー</span>
+            <span class="rsp">¥54,000〜68,000</span>
+          </div>
+          <p>小賀坂（オガサカ）工場で製造される国産ブランドRICE28のエントリーモデル。国産ならではの品質の高さとコスパを両立。グラトリからオールマウンテンまでこなせる万能な設計で、初心者が長く使える1本です。</p>
+          <div class="rec-btns">
+            <a class="btn-rak" href="https://hb.afl.rakuten.co.jp/ichiba/53cb0977.7c2e00ac.53cb0978.5ef9f80d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fshift-snowboard%2F24_rice_rt8_tp_%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="noopener sponsored">🛒 楽天で見る</a>
+            <a class="btn-off" href="https://rice28.jp" target="_blank" rel="noopener">公式サイト →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 NOVEMBER ARTISTE -->
+      <div class="rec-card">
+        <div class="rec-head">
+          <div class="rec-num n4">4</div>
+          <div>
+            <div class="rec-brand">NOVEMBER</div>
+            <div class="rec-name">ARTISTE</div>
+            <div class="rec-for">👉 国産ブランドでフリースタイル系を楽しみたい人に</div>
+          </div>
+        </div>
+        <div class="rec-body">
+          <div class="rec-specs">
+            <span class="rsp">フレックス：4</span>
+            <span class="rsp">ツイン形状</span>
+            <span class="rsp">ハイブリッドキャンバー</span>
+            <span class="rsp">¥78,000〜98,000</span>
+          </div>
+          <p>小賀坂工場製造のMade in Japan国産フリースタイルボード。日本人の体格に合わせた設計で、操作感が非常に自然。初心者から中級者まで長く使えるオールラウンドな性能を持ちます。国産品質にこだわりたい方に強くおすすめです。</p>
+          <div class="rec-btns">
+            <a class="btn-rak" href="https://hb.afl.rakuten.co.jp/ichiba/53cb30b9.107a7a39.53cb30ba.dc14dbfb/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fabeam-webstore%2F10008330%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="noopener sponsored">🛒 楽天で見る</a>
+            <a class="btn-off" href="https://november-snowboard.com" target="_blank" rel="noopener">公式サイト →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 Salomon Huck Knife -->
+      <div class="rec-card">
+        <div class="rec-head">
+          <div class="rec-num n5">5</div>
+          <div>
+            <div class="rec-brand">Salomon</div>
+            <div class="rec-name">Huck Knife</div>
+            <div class="rec-for">👉 パーク・ジブに興味がある初心者に</div>
+          </div>
+        </div>
+        <div class="rec-body">
+          <div class="rec-specs">
+            <span class="rsp">フレックス：4</span>
+            <span class="rsp">ツイン形状</span>
+            <span class="rsp">ロッカー/キャンバー/ロッカー</span>
+            <span class="rsp">¥73,000〜84,000</span>
+          </div>
+          <p>サロモンのパーク入門モデル。ロッカー/キャンバー/ロッカーの複合プロファイルが操作しやすく、キッカーやジブへの入門に最適。スイッチライディングも覚えやすい設計で、パークを楽しみたい初心者にうってつけです。</p>
+          <div class="rec-btns">
+            <a class="btn-rak" href="https://hb.afl.rakuten.co.jp/ichiba/53caf62a.2aac2737.53caf62b.7908d6bb/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fauc-breakout%2Fplse%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="noopener sponsored">🛒 楽天で見る</a>
+            <a class="btn-off" href="https://www.salomon.com/ja-jp" target="_blank" rel="noopener">公式サイト →</a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /rec-cards -->
+  </div>
+
+
+  <!-- ⑨ セット vs 単品 -->
+  <div class="sec" id="set">
+    <h2>🛒 セット購入 vs 単品の考え方</h2>
+
+    <h3>格安3点セットの注意点</h3>
+    <p>楽天やAmazonで1〜3万円の「板・ブーツ・ビンディング3点セット」をよく見かけます。コスパよく見えますが、<strong>各パーツの品質が低く上達の妨げになる</strong>ことがあります。特にブーツは足首のサポート性能が重要で、安すぎるものはケガのリスクにつながります。</p>
+
+    <div class="info-box">
+      <div class="it">💡 おすすめの購入方法</div>
+      <ul>
+        <li>板・ビンディング・ブーツはなるべく<strong>単品で選ぶ</strong></li>
+        <li>ブーツは足に合うものを最優先（ショップで試し履きが理想）</li>
+        <li>ビンディングは板に合ったディスクサイズか要確認</li>
+        <li>合計予算の目安：<strong>板40% ／ ビンディング30% ／ ブーツ30%</strong></li>
+      </ul>
+    </div>
+  </div>
+
+
+  <!-- TOOL CTA 2 -->
+  <div class="cta-tool">
+    <h3>⚡ 迷ってる時間、もったいない！</h3>
+    <p>40モデル以上のDBから、あなたの体格とスタイルに<br>ぴったりの板を即座にランキング表示します。</p>
+    <a href="/">🏂 板を今すぐ選ぶ（無料） →</a>
+  </div>
+
+
+  <!-- ⑩ FAQ -->
+  <div class="sec" id="faq">
+    <h2>❓ よくある質問（FAQ）</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">スノーボードの板の長さはどう選べばいい？</div>
+      <div class="faq-a">基本は<strong>身長から15〜20cm短い長さ</strong>が目安です。身長170cmなら150〜155cm、175cmなら155〜160cmが適切です。体重が重い方は少し長め、グラトリ・トリック重視なら少し短めを選びましょう。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">初心者はフレックスを何くらいにすればいい？</div>
+      <div class="faq-a">初心者は<strong>フレックス3〜5のソフト〜ミディアム</strong>がおすすめです。板が柔らかいほどしなりやすく、ターンの感覚をつかみやすくなります。上達してから自分のスタイルに合わせて変えましょう。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">レンタルと購入どっちがお得？</div>
+      <div class="faq-a">1シーズンに<strong>5回以上滑る方は購入がお得</strong>です。レンタルは1回約5,000円のため5回で25,000円。エントリーモデルは3〜5万円から購入できるので、長期的に見ると購入の方がコストパフォーマンスが高くなります。また、自分の板は自分に合わせてセッティングできるため上達も早くなります。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">グラトリがしたい初心者はどんな板を選べばいい？</div>
+      <div class="faq-a"><strong>ソフトフレックス（3〜5）のツイン形状でダブルキャンバーかポップキャンバー</strong>の板がおすすめです。FNTCのTNT Cシリーズは楽天ランキングでも常連の定番グラトリ入門ボードで、コスパも抜群です。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">ウエスト幅（ウィズ）はどう選べばいい？</div>
+      <div class="faq-a">目安は<strong>ブーツサイズ（cm）× 10 − 10mm前後</strong>です。28cmのブーツなら270mm前後が理想。足が大きい方（27cm以上）は通常の板だとドラグ（エッジを立てた時につま先が刺さる）が起きやすいため、<strong>ワイドモデル</strong>を選ぶことを強くおすすめします。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">中古板でも初心者は大丈夫？</div>
+      <div class="faq-a">状態が良ければ問題ありません。ただし<strong>エッジのサビ・ベースの深い傷・芯材のダメージ</strong>がないか確認が必要です。メルカリやラクマで購入する際は複数の写真を確認し、できれば試乗できる環境で選ぶのがベストです。</div>
+    </div>
+  </div>
+
+
+  <!-- ⑪ まとめ -->
+  <div class="sec" id="summary">
+    <h2>📝 まとめ</h2>
+    <div class="summary" style="color:#1A1A2E">
+      <h3 style="color:#1A1A2E">✅ 失敗しない板選びのポイント</h3>
+      <ul>
+        <li>長さは<strong>身長から15〜20cm短い</strong>ものを基準にする</li>
+        <li>初心者はフレックス<strong>3〜5のソフト〜ミディアム</strong>を選ぶ</li>
+        <li>プロファイルは<strong>ハイブリッドキャンバーかロッカー</strong>が扱いやすい</li>
+        <li>シェイプは<strong>ディレクショナルツイン</strong>がオールラウンドで安心</li>
+        <li>足が大きい方（27cm以上）は<strong>ウエスト幅に注意</strong>してワイドモデルを</li>
+        <li>基準を満たした中から<strong>好きなデザインを選ぶ</strong>のが最終ステップ</li>
+        <li>最初の板はオールラウンドボード。2本目からスタイル特化板へ</li>
+      </ul>
+    </div>
+
+    <p style="color:rgba(255,255,255,.75);font-size:15px;margin-top:24px;line-height:1.9">板選びに迷ったら、BOARD FINDERの自動検索ツールを使ってみてください。身長・体重・レベルを入力するだけで、あなたにピッタリの推奨レングスと板を自動計算します。</p>
+  </div>
+
+  <!-- FINAL CTA -->
+  <div class="cta-tool">
+    <h3>🏆 あなたの「最高の一枚」が<br>今すぐ見つかる</h3>
+    <p>入力60秒・登録不要・完全無料！<br>OGASAKA・FNTC・Burton など国産＋海外 40モデル以上から厳選。</p>
+    <a href="/">🏂 無料で板を探してみる →</a>
+  </div>
+
+</div><!-- /container -->
+
+<footer class="footer">
+  🏂 BOARD FINDER 2025-26/26-27 |
+  <a href="/">トップ</a>
+  <a href="/about.html">運営者情報</a>
+  <a href="/privacy.html">プライバシーポリシー</a>
+  <a href="/contact.html">お問い合わせ</a>
+</footer>
+
+</body>
+</html>
