@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>カービング中の「ドラグ」とは？原因・防ぎ方・板の選び方を徹底解説 | BOARD FINDER</title>
+  <meta name="description" content="カービング中に起こる「ドラグ（つま先・かかとが雪に引っかかる現象）」の原因と防ぎ方を、JSBAインストラクターのリョータが解説。ウエスト幅・スタンス角度・ビンディング位置の調整方法まで。">
+  <meta name="keywords" content="スノーボード ドラグ 防ぎ方, カービング ドラグ, ウエスト幅 ドラグ, スノーボード ドラグとは">
+  <link rel="canonical" href="https://snowboard-finder.vercel.app/drag-guide.html">
+  <meta property="og:title" content="カービング中の「ドラグ」とは？原因・防ぎ方・板の選び方">
+  <meta property="og:description" content="ドラグの原因・防ぎ方・板の選び方をJSBAインストラクターが徹底解説。ウエスト幅・スタンス角度・ビンディング位置の調整まで。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://snowboard-finder.vercel.app/drag-guide.html">
+  <meta property="og:site_name" content="BOARD FINDER">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "カービング中の「ドラグ」とは？原因・防ぎ方・板の選び方を徹底解説",
+    "author": { "@type": "Person", "name": "リョータ", "jobTitle": "JSBAスノーボードインストラクター" },
+    "publisher": { "@type": "Organization", "name": "BOARD FINDER" },
+    "datePublished": "2026-05-15",
+    "dateModified": "2026-05-15"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "ドラグとは何ですか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "ドラグとは、カービングターン中にブーツのつま先またはかかとが雪面に触れ、引っかかってターンが乱れる現象です。ウエスト幅が広すぎる板にブーツが大きすぎる場合や、スタンス角度・ビンディング位置のセッティングミスが主な原因です。" }
+      },
+      {
+        "@type": "Question",
+        "name": "ドラグを防ぐにはウエスト幅をどれくらいにすればいいですか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "ブーツのソール長（実測）を基準に、ウエスト幅との差が5〜15mm以内に収まるのが理想です。ショップでブーツを板に乗せて実際のはみ出し量を確認するのが最も確実です。" }
+      },
+      {
+        "@type": "Question",
+        "name": "スタンス角度を変えるとドラグは改善しますか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "はい、改善できます。スタンス角度を大きくする（前足24〜27°、後ろ足9〜15°など）と、つま先・かかとの前後方向へのはみ出しが減り、ドラグが起きにくくなります。ただし角度を大きくしすぎると膝への負担が増えるため、無理のない範囲で調整してください。" }
+      },
+      {
+        "@type": "Question",
+        "name": "板を変えずにドラグを改善する方法はありますか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "はい。スタンス角度を立てる（角度を大きくする）、ビンディングをセンタリングしてブーツの重心を板の中央に合わせる、ショートカービング（短いターン弧）でバンク角を小さく保つ、の3つが板を変えずにできる主な改善方法です。" }
+      },
+      {
+        "@type": "Question",
+        "name": "ドラグはトゥ側とヒール側どちらが多いですか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "一般的にはトゥ側（つま先側）のドラグが多い傾向があります。ヒールサイドターンで体を傾けた際にブーツのつま先が雪面に引っかかるケースです。スタンス角度を大きくすることで改善しやすいです。" }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Bebas+Neue&display=swap');
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0F1522; --surface: #1a2035; --border: #2a3550;
+      --accent: #00c8ff; --accent2: #ff6b35; --text: #e8eaf0;
+      --muted: #8892a4; --card: #1e2840; --max-w: 780px;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'Noto Sans JP', sans-serif; font-size: 16px; line-height: 1.85; }
+
+    .site-nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(15,21,34,.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 20px; display: flex; align-items: center; justify-content: space-between; height: 56px;
+    }
+    .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 2px; color: var(--accent); text-decoration: none; }
+    .nav-links { display: flex; gap: 20px; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: .85rem; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover { color: var(--accent); }
+
+    .hero {
+      background: linear-gradient(135deg, #0a0f1e 0%, #0f1a2e 60%, #0a1525 100%);
+      border-bottom: 1px solid var(--border); padding: 60px 20px 50px;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 50% at 50% 80%, rgba(255,107,53,.07) 0%, transparent 70%);
+    }
+    .hero-tag {
+      display: inline-block; background: rgba(255,107,53,.12); border: 1px solid rgba(255,107,53,.3);
+      color: var(--accent2); font-size: .75rem; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase; padding: 4px 14px; border-radius: 20px; margin-bottom: 20px;
+    }
+    .hero h1 { font-size: clamp(1.55rem, 4vw, 2.3rem); font-weight: 700; line-height: 1.4; max-width: 680px; margin: 0 auto 16px; position: relative; }
+    .hero h1 em { font-style: normal; background: linear-gradient(90deg, var(--accent2), #ffb347); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero-meta { color: var(--muted); font-size: .85rem; display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .hero-meta span::before { content: '·'; margin-right: 6px; }
+    .hero-meta span:first-child::before { display: none; }
+
+    .toc-wrap { max-width: var(--max-w); margin: 40px auto 0; padding: 0 20px; }
+    .toc { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent2); border-radius: 8px; padding: 20px 24px; }
+    .toc-title { font-size: .8rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent2); margin-bottom: 12px; }
+    .toc ol { padding-left: 18px; }
+    .toc li { margin: 6px 0; font-size: .9rem; }
+    .toc a { color: var(--muted); text-decoration: none; transition: color .2s; }
+    .toc a:hover { color: var(--accent2); }
+
+    .article { max-width: var(--max-w); margin: 0 auto; padding: 48px 20px 80px; }
+    h2 { font-size: 1.45rem; font-weight: 700; border-left: 4px solid var(--accent2); padding-left: 14px; margin: 56px 0 20px; scroll-margin-top: 70px; }
+    h3 { font-size: 1.1rem; font-weight: 700; margin: 32px 0 12px; color: #c8d4e8; scroll-margin-top: 70px; }
+    p { margin-bottom: 18px; }
+
+    .exp-box {
+      background: linear-gradient(135deg, rgba(0,200,255,.06), rgba(0,200,255,.02));
+      border: 1px solid rgba(0,200,255,.2); border-radius: 10px;
+      padding: 22px 24px; margin: 28px 0; position: relative;
+    }
+    .exp-box::before { content: '💬 リョータの実体験'; display: block; font-size: .75rem; font-weight: 700; letter-spacing: 1px; color: var(--accent); margin-bottom: 10px; }
+    .exp-box p { margin-bottom: 0; font-size: .95rem; color: #c8d8f0; }
+
+    .point-box { background: rgba(255,107,53,.07); border: 1px solid rgba(255,107,53,.25); border-radius: 10px; padding: 20px 24px; margin: 28px 0; }
+    .point-title { font-size: .75rem; font-weight: 700; letter-spacing: 1px; color: var(--accent2); margin-bottom: 10px; }
+    .point-box p { margin-bottom: 0; font-size: .95rem; }
+
+    .check-box { background: rgba(0,200,255,.05); border: 1px solid rgba(0,200,255,.18); border-radius: 10px; padding: 20px 24px; margin: 28px 0; }
+    .check-title { font-size: .8rem; font-weight: 700; letter-spacing: 1px; color: var(--accent); margin-bottom: 14px; }
+    .check-list { list-style: none; padding: 0; }
+    .check-list li { padding: 6px 0; font-size: .92rem; display: flex; align-items: flex-start; gap: 10px; border-bottom: 1px solid rgba(255,255,255,.04); }
+    .check-list li:last-child { border-bottom: none; }
+    .check-list li::before { content: '✓'; color: var(--accent); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+
+    .table-wrap { overflow-x: auto; margin: 24px 0; }
+    table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+    th { background: var(--surface); border: 1px solid var(--border); padding: 10px 14px; text-align: left; color: var(--accent2); font-weight: 700; white-space: nowrap; }
+    td { border: 1px solid var(--border); padding: 10px 14px; vertical-align: top; }
+    tr:nth-child(even) td { background: rgba(255,255,255,.02); }
+
+    .diagram {
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 24px; margin: 28px 0; text-align: center;
+    }
+    .diagram-title { font-size: .8rem; font-weight: 700; color: var(--muted); letter-spacing: 1px; margin-bottom: 16px; }
+    .board-cross {
+      display: inline-block; position: relative;
+      width: 200px; height: 60px; margin: 0 auto;
+    }
+    .board-rect { width: 200px; height: 18px; background: #2a3550; border-radius: 9px; position: absolute; top: 50%; transform: translateY(-50%); }
+    .boot-ok { width: 70px; height: 30px; background: rgba(0,200,255,.25); border: 2px solid var(--accent); border-radius: 5px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: flex; align-items: center; justify-content: center; font-size: .65rem; font-weight: 700; color: var(--accent); }
+    .boot-ng { width: 90px; height: 30px; background: rgba(255,107,53,.25); border: 2px solid var(--accent2); border-radius: 5px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: flex; align-items: center; justify-content: center; font-size: .65rem; font-weight: 700; color: var(--accent2); }
+    .diagram-row { display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; margin-top: 8px; }
+    .diagram-col { text-align: center; }
+    .diagram-label { font-size: .8rem; color: var(--muted); margin-top: 8px; }
+
+    .step-list { counter-reset: step; list-style: none; padding: 0; margin: 20px 0; }
+    .step-list li {
+      counter-increment: step;
+      display: flex; gap: 16px; align-items: flex-start;
+      padding: 16px 0; border-bottom: 1px solid var(--border);
+    }
+    .step-list li:last-child { border-bottom: none; }
+    .step-num {
+      width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0;
+      background: rgba(255,107,53,.15); border: 1.5px solid rgba(255,107,53,.4);
+      color: var(--accent2); font-weight: 700; font-size: .85rem;
+      display: flex; align-items: center; justify-content: center; margin-top: 2px;
+    }
+    .step-num::before { content: counter(step); }
+    .step-body { flex: 1; }
+    .step-body strong { display: block; margin-bottom: 4px; font-size: 1rem; }
+    .step-body p { font-size: .9rem; color: var(--muted); margin-bottom: 0; }
+
+    .faq-list { margin: 24px 0; }
+    .faq-item { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 12px; overflow: hidden; }
+    .faq-q { padding: 16px 20px; font-weight: 700; font-size: .95rem; cursor: pointer; display: flex; align-items: center; gap: 12px; background: var(--surface); transition: background .2s; user-select: none; list-style: none; }
+    .faq-q:hover { background: #212d44; }
+    .faq-q::marker, .faq-q::-webkit-details-marker { display: none; }
+    .faq-icon { width: 22px; height: 22px; flex-shrink: 0; border: 1.5px solid rgba(255,107,53,.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .8rem; color: var(--accent2); transition: transform .25s; }
+    details[open] .faq-icon { transform: rotate(45deg); }
+    .faq-q-text { color: var(--accent2); margin-right: auto; }
+    .faq-a { padding: 16px 20px; font-size: .9rem; color: var(--muted); border-top: 1px solid var(--border); line-height: 1.8; }
+
+    .cta-block { background: linear-gradient(135deg, rgba(0,200,255,.08), rgba(0,150,200,.04)); border: 1px solid rgba(0,200,255,.2); border-radius: 14px; padding: 36px 28px; text-align: center; margin: 56px 0 0; }
+    .cta-block h3 { margin-top: 0; font-size: 1.2rem; }
+    .cta-block p { color: var(--muted); margin-bottom: 24px; }
+    .cta-btn { display: inline-block; background: linear-gradient(90deg, var(--accent), #60efff); color: #0a1020; font-weight: 700; font-size: 1rem; text-decoration: none; padding: 14px 32px; border-radius: 8px; transition: opacity .2s, transform .2s; }
+    .cta-btn:hover { opacity: .9; transform: translateY(-1px); }
+
+    footer { border-top: 1px solid var(--border); padding: 28px 20px; text-align: center; color: var(--muted); font-size: .82rem; }
+    footer a { color: var(--muted); }
+
+    @media(max-width:600px) { h2 { font-size: 1.2rem; } .diagram-row { gap: 16px; } }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="https://snowboard-finder.vercel.app/" class="nav-logo">BOARD FINDER</a>
+  <ul class="nav-links">
+    <li><a href="https://snowboard-finder.vercel.app/">板を探す</a></li>
+    <li><a href="https://snowboard-finder.vercel.app/beginner-guide.html">初心者ガイド</a></li>
+    <li><a href="https://snowboard-finder.vercel.app/about.html">About</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div class="hero-tag">カービング上達ガイド</div>
+  <h1>カービング中の<em>「ドラグ」</em>とは？<br>原因・防ぎ方・板の選び方を徹底解説</h1>
+  <div class="hero-meta">
+    <span>2026年5月15日</span>
+    <span>リョータ（JSBAインストラクター・スノーボード歴7年）</span>
+    <span>読了目安：約5分</span>
+  </div>
+</header>
+
+<nav class="toc-wrap" aria-label="目次">
+  <div class="toc">
+    <div class="toc-title">目次</div>
+    <ol>
+      <li><a href="#what">「ドラグ」とは何か？</a></li>
+      <li><a href="#cause">ドラグが起きる3つの原因</a></li>
+      <li><a href="#fix-setting">セッティングで改善する方法</a></li>
+      <li><a href="#fix-board">板を変えて根本解決する方法</a></li>
+      <li><a href="#check">ドラグ確認の簡単チェック法</a></li>
+      <li><a href="#faq">よくある質問（FAQ）</a></li>
+      <li><a href="#summary">まとめ</a></li>
+    </ol>
+  </div>
+</nav>
+
+<article class="article">
+
+  <p>「カービングをしていると、何かに引っかかって突然転ぶ」——スノーボードをある程度滑れるようになった中級者から、こういった悩みをよく聞きます。その正体がほぼ間違いなく<strong>「ドラグ」</strong>です。</p>
+
+  <p>ドラグは技術の問題ではなく、<strong>セッティングまたは板選びのミス</strong>で起きることがほとんど。原因を理解すれば確実に防げます。この記事ではドラグの仕組みから改善方法まで順番に解説します。</p>
+
+  <h2 id="what">1. 「ドラグ」とは何か？</h2>
+
+  <p>ドラグとは、カービングターンで板を傾けたときに<strong>ブーツのつま先（トゥ）またはかかと（ヒール）が雪面に触れてしまう現象</strong>です。英語で「drag＝引きずる」が語源で、雪面に引っかかることでターンが強制的に乱れ、最悪の場合そのまま前方または後方に転倒します。</p>
+
+  <div class="diagram">
+    <div class="diagram-title">断面図で見るドラグのイメージ</div>
+    <div class="diagram-row">
+      <div class="diagram-col">
+        <div class="board-cross">
+          <div class="board-rect"></div>
+          <div class="boot-ok">ブーツ</div>
+        </div>
+        <div class="diagram-label" style="color:var(--accent)">✓ ドラグなし<br>ブーツが板内に収まる</div>
+      </div>
+      <div class="diagram-col">
+        <div class="board-cross">
+          <div class="board-rect"></div>
+          <div class="boot-ng">ブーツ　はみ出</div>
+        </div>
+        <div class="diagram-label" style="color:var(--accent2)">✗ ドラグあり<br>ブーツが板からはみ出る</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="exp-box">
+    <p>カービングの練習を本格的に始めた3年目のシーズン。ヒールサイドターンで急に「ガッ」という衝撃が来て即転倒。何が起きたか全くわからなかった。スクールの先輩インストラクターに相談すると「ウエスト幅が広すぎてトゥドラグしてるよ」と即答。確認してみたら、ブーツのつま先が板の幅から1.5cmほどはみ出していました。その日以降、板を替えるまで毎回同じ場所で転び続けた苦い経験です。</p>
+  </div>
+
+  <h2 id="cause">2. ドラグが起きる3つの原因</h2>
+
+  <h3>原因① ウエスト幅がブーツに対して広すぎる</h3>
+  <p>最も多い原因です。板のウエスト幅（一番細い部分）がブーツのソール幅より広い場合、ブーツのつま先・かかとが板の外側にはみ出します。カービングで板を傾けると、このはみ出た部分が雪面に刺さります。</p>
+
+  <div class="table-wrap">
+    <table>
+      <tr><th>ブーツサイズ</th><th>許容ウエスト幅の目安</th><th>ドラグリスク</th></tr>
+      <tr><td>25.0〜26.0cm</td><td>238〜248mm</td><td>248mm超でリスク増</td></tr>
+      <tr><td>26.5〜27.5cm</td><td>245〜255mm</td><td>256mm超でリスク増</td></tr>
+      <tr><td>28.0〜29.0cm</td><td>252〜262mm</td><td>263mm超でリスク増</td></tr>
+    </table>
+  </div>
+
+  <h3>原因② スタンス角度が小さすぎる</h3>
+  <p>スタンス角度が小さい（足が板に対して直角に近い）と、ブーツが板の左右方向に広く飛び出します。前足12°・後ろ足−3°のようなダックスタンスは、見た目のはみ出しが最大になる角度です。</p>
+
+  <h3>原因③ ビンディングのセンタリングがずれている</h3>
+  <p>ビンディングの取り付け位置が板の中心からずれていると、片側だけはみ出しが大きくなります。特にトゥ側に寄っているとトゥドラグが発生しやすくなります。</p>
+
+  <div class="point-box">
+    <div class="point-title">⚡ 覚えておくこと</div>
+    <p>ドラグはトゥ側（つま先）で起きるケースがヒール側より多いです。ヒールサイドターンで傾けると、相対的にトゥ側が下を向くため引っかかりやすくなります。「ヒールサイドで突然転ぶ」という場合はトゥドラグを疑いましょう。</p>
+  </div>
+
+  <h2 id="fix-setting">3. セッティングで改善する方法</h2>
+
+  <p>板を変えずに今すぐできる改善が3つあります。</p>
+
+  <ol class="step-list">
+    <li>
+      <div class="step-num"></div>
+      <div class="step-body">
+        <strong>スタンス角度を大きくする</strong>
+        <p>前足を18°→24°、後ろ足を−3°→9°など、足を前向きに立てると横方向のはみ出しが減ります。カービング特化セッティングなら前足24〜27°・後ろ足9〜15°が目安。ただし変えすぎると膝に負担が出るので、一度に3°ずつ調整するのが安全です。</p>
+      </div>
+    </li>
+    <li>
+      <div class="step-num"></div>
+      <div class="step-body">
+        <strong>ビンディングをセンタリングする</strong>
+        <p>ブーツをビンディングに装着した状態で、板の幅の中央にブーツの重心が来ているか確認します。前後・左右ともにセンターに来るよう、ビンディングのベースプレートをずらして調整します。多くのビンディングはプレートをスライドさせるだけで調整できます。</p>
+      </div>
+    </li>
+    <li>
+      <div class="step-num"></div>
+      <div class="step-body">
+        <strong>ターン弧を大きく（バンク角を小さく）保つ</strong>
+        <p>板を大きく傾けるほどドラグが起きやすくなります。練習段階では浅いバンク角から始め、板の傾きに慣れながらセッティングと同時進行で改善するのが現実的です。</p>
+      </div>
+    </li>
+  </ol>
+
+  <h2 id="fix-board">4. 板を変えて根本解決する方法</h2>
+
+  <p>セッティング調整で改善しきれない場合、根本的な解決は<strong>ウエスト幅が自分のブーツに合った板に替える</strong>ことです。</p>
+
+  <div class="check-box">
+    <div class="check-title">板替えを検討すべきサイン</div>
+    <ul class="check-list">
+      <li>スタンス角度を最大にしてもドラグが解消されない</li>
+      <li>現在の板のウエスト幅が255mm以上でブーツが27cm以下</li>
+      <li>ショップでブーツを板に乗せたとき、つま先・かかとが1.5cm以上はみ出す</li>
+      <li>カービング中に「ガッ」という衝撃が毎回起きる</li>
+    </ul>
+  </div>
+
+  <h3>板選びで確認すべき3つのポイント</h3>
+
+  <div class="table-wrap">
+    <table>
+      <tr><th>チェック項目</th><th>確認方法</th><th>理想の状態</th></tr>
+      <tr><td>ウエスト幅</td><td>板のカタログ・スペック表で確認</td><td>ブーツソール長−ドラグ余裕5〜15mm以内</td></tr>
+      <tr><td>形状</td><td>キャンバー推奨</td><td>ロッカーはグリップが弱くカービング不向き</td></tr>
+      <tr><td>フレックス</td><td>自分のレベルに合わせる</td><td>中上級：6〜8、初中級：5〜7</td></tr>
+    </table>
+  </div>
+
+  <p>ショップで実際にブーツを持参して板の上に乗せ、はみ出し量を目視確認するのが最も確実な方法です。ネット購入の場合はスペック表のウエスト幅とブーツのソール長を比較して判断しましょう。</p>
+
+  <div class="exp-box">
+    <p>スクールで「カービングできない」と相談してくる受講者の板を確認すると、ドラグが起きているケースが体感で3〜4割。そのほとんどが「カービングができないのは技術の問題だ」と思い込んで、何年も悩み続けています。一度ウエスト幅が合った板に乗せてあげると、技術は変えていないのにターンが激変する。板選びって本当に大事だと毎回実感します。</p>
+  </div>
+
+  <h2 id="check">5. ドラグ確認の簡単チェック法</h2>
+
+  <p>以下の方法で自分がドラグしているか確認できます。</p>
+
+  <ol class="step-list">
+    <li>
+      <div class="step-num"></div>
+      <div class="step-body">
+        <strong>雪面に板を置いてブーツを装着して確認</strong>
+        <p>平地でブーツをビンディングにセットした状態で、板を傾けてつま先・かかとが雪に触れないか確認します。触れるならドラグ確定。</p>
+      </div>
+    </li>
+    <li>
+      <div class="step-num"></div>
+      <div class="step-body">
+        <strong>滑走後に板のエッジ付近を見る</strong>
+        <p>滑走後、エッジの外側（ブーツ側面が当たる部分）に雪の擦り跡や傷がついていればドラグの証拠です。</p>
+      </div>
+    </li>
+    <li>
+      <div class="step-num"></div>
+      <div class="step-body">
+        <strong>友人やインストラクターに後ろから動画を撮ってもらう</strong>
+        <p>ターン中の動画で、板を傾けたときにブーツが雪面に触れているか目視確認できます。スローで確認するのが効果的です。</p>
+      </div>
+    </li>
+  </ol>
+
+  <h2 id="faq">6. よくある質問（FAQ）</h2>
+  <div class="faq-list">
+    <details class="faq-item">
+      <summary class="faq-q"><span class="faq-icon">+</span><span class="faq-q-text">Q. ドラグとは何ですか？</span></summary>
+      <div class="faq-a">カービングターン中にブーツのつま先またはかかとが雪面に触れ、引っかかってターンが乱れる現象です。ウエスト幅が広すぎる板にブーツが大きすぎる場合や、スタンス角度・ビンディング位置のセッティングミスが主な原因です。</div>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-q"><span class="faq-icon">+</span><span class="faq-q-text">Q. ドラグを防ぐにはウエスト幅をどれくらいにすればいいですか？</span></summary>
+      <div class="faq-a">ブーツのソール長を基準に、ウエスト幅との差が5〜15mm以内に収まるのが理想です。ショップでブーツを板に乗せて実際のはみ出し量を確認するのが最も確実です。</div>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-q"><span class="faq-icon">+</span><span class="faq-q-text">Q. スタンス角度を変えるとドラグは改善しますか？</span></summary>
+      <div class="faq-a">はい、改善できます。スタンス角度を大きくする（前足24〜27°、後ろ足9〜15°など）と、つま先・かかとの横方向へのはみ出しが減ります。ただし角度を大きくしすぎると膝への負担が増えるため、無理のない範囲で調整してください。</div>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-q"><span class="faq-icon">+</span><span class="faq-q-text">Q. 板を変えずにドラグを改善する方法はありますか？</span></summary>
+      <div class="faq-a">はい。スタンス角度を立てる、ビンディングをセンタリングする、ターン弧を大きくしてバンク角を小さく保つ、の3つが板を変えずにできる主な改善方法です。</div>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-q"><span class="faq-icon">+</span><span class="faq-q-text">Q. ドラグはトゥ側とヒール側どちらが多いですか？</span></summary>
+      <div class="faq-a">一般的にはトゥ側（つま先側）のドラグが多い傾向があります。ヒールサイドターンで体を傾けた際にブーツのつま先が雪面に引っかかるケースです。スタンス角度を大きくすることで改善しやすいです。</div>
+    </details>
+  </div>
+
+  <h2 id="summary">7. まとめ</h2>
+  <p>ドラグの原因と対策をまとめます：</p>
+  <div class="table-wrap">
+    <table>
+      <tr><th>原因</th><th>対策</th></tr>
+      <tr><td>ウエスト幅が広すぎる</td><td>板を自分のブーツに合ったウエスト幅に替える</td></tr>
+      <tr><td>スタンス角度が小さい</td><td>前足24〜27°、後ろ足9〜15°を目安に調整</td></tr>
+      <tr><td>ビンディングのセンタリングがずれ</td><td>ブーツの重心を板の中心に合わせる</td></tr>
+    </table>
+  </div>
+  <p>「カービングが上達しない」「謎の転倒が続く」という場合は、技術よりも先にドラグを疑ってみてください。自分に合った板のウエスト幅はBOARD FINDERで確認できます。</p>
+
+  <div class="cta-block">
+    <h3>🏂 ドラグが起きないボードをAIで探す</h3>
+    <p>身長・体重・ブーツサイズを入力するだけで最適なウエスト幅のモデルを提案します</p>
+    <a href="https://snowboard-finder.vercel.app/" class="cta-btn">BOARD FINDERを使ってみる →</a>
+  </div>
+
+</article>
+
+<footer>
+  <p>© 2026 BOARD FINDER — <a href="https://snowboard-finder.vercel.app/about.html">運営者情報</a> · <a href="https://snowboard-finder.vercel.app/privacy.html">プライバシーポリシー</a> · <a href="https://snowboard-finder.vercel.app/contact.html">お問い合わせ</a></p>
+  <p style="margin-top:8px;">当サイトは楽天アフィリエイトプログラムに参加しています。</p>
+</footer>
+</body>
+</html>
