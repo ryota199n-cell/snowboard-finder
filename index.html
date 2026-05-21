@@ -1179,6 +1179,21 @@ const DB=[
    url:"https://www.bataleon.com"},
 ];
 
+// ── カスタム板をlocalStorageから読み込み ──
+(function(){
+  try {
+    const custom = JSON.parse(localStorage.getItem('customBoards') || '[]');
+    custom.forEach(b => {
+      DB.push(b);
+      if (b.rakutenUrl) {
+        if (!RAKUTEN[b.brand]) RAKUTEN[b.brand] = {};
+        RAKUTEN[b.brand][b.model] = b.rakutenUrl;
+        b.isRak = true;
+      }
+    });
+  } catch(e) {}
+})();
+
 // ═══════════════════════════════════════════
 //  STATE
 // ═══════════════════════════════════════════
